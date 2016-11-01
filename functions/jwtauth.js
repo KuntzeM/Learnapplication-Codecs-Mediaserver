@@ -9,7 +9,8 @@ module.exports = function(req, res, next) {
     if (token) {
         try {
             var decoded    = jwt.decode(token, req.app.get('jwtTokenSecret'), true);
-
+            req.decoded = decoded;
+            next();
             connection = req.app.get("connection");
 
             connection.query({
