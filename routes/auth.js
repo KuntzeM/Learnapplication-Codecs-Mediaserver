@@ -1,9 +1,20 @@
 var express = require('express');
 var router = express.Router();
+upload = require('jquery-file-upload-middleware');
 
 
+router.use('/video', function (req, res, next) {
+    upload.fileHandler({
+        uploadDir: __dirname + '/public/uploads2',
+        uploadUrl: '/uploads2',
+        imageVersions: {
+            thumbnail: {
+                width: 100,
+                height: 100
+            }
+        }
+    });
 
-router.post('/video', function(req, res, next) {
     res.json({ success: true, message: req.decoded.sub});
     console.log("add a video");
 });

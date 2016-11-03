@@ -1,7 +1,7 @@
 var jwt = require('jwt-simple');
 var mysql      = require('mysql');
 var config = require('./../config.json');
-
+var upload = require('jquery-file-upload-middleware');
 module.exports = function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
 

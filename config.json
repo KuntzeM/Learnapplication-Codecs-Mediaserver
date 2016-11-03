@@ -8,6 +8,9 @@
   },
   "api": {
     "key": 1234567890
+  },
+  "storage": {
+    "path": "storage"
   }
 
 

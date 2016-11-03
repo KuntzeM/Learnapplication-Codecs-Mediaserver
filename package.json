@@ -17,6 +17,7 @@
     "imagemagick": "*",
     "mysql": "*",
     "jwt-simple": "*",
-    "moment": "*"
+    "moment": "*",
+    "jquery-file-upload-middleware": "*"
   }
 }
