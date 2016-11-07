@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var upload = require('jquery-file-upload-middleware');
+var fs = require('fs');
+
+
 
 router.use('/video', function (req, res, next) {
 
@@ -12,20 +14,18 @@ router.delete('/video/:id', function(req, res, next) {
     console.log("delete video with id " + req.params.id);
 });
 
-upload.configure({
-    uploadDir: 'storage/images',
-    uploadUrl: '/image',
-    imageVersions: {
-        thumbnail: {
-            width: 80,
-            height: 80
+
+router.post('/image', function (req, res, next) {
+
+    fs.writeFile("storage/images/test.jpg", req.files[0].buffer, function (err) {
+        if (err) {
+            return console.log(err);
         }
-    }
+
+        console.log("The file was saved!");
+    });
+    res.json({success: true});
 });
-
-
-router.use('/image', upload.fileHandler());
-
 
 router.delete('/image/:id', function(req, res, next) {
     console.log("delete image with id " + req.params.id);

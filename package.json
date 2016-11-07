@@ -18,6 +18,6 @@
     "mysql": "*",
     "jwt-simple": "*",
     "moment": "*",
-    "jquery-file-upload-middleware": "*"
+    "multer": "*"
   }
 }

@@ -5,13 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jwt    = require('jwt-simple');
+
+// include routes
 var auth = require('./routes/auth');
 var public = require('./routes/public');
 var moment = require('moment');
+
+// include own functions
 var jwtauth = require('./functions/jwtauth.js');
 var dbconnection = require('./functions/connectMysql.js')
-var app = express();
 var config = require('./config.json');
+
+// formdata parser
+var multer = require('multer')
+var upload = multer()
+
+
+var app = express();
+
 
 
 app.use(logger('dev'));
@@ -22,7 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 console.log('packages loaded ...')
 
+
+app.all('/auth/*', upload.any());
 app.all('/auth/*', jwtauth);
+
 
 app.use('/public', public);
 app.use('/auth', auth);
