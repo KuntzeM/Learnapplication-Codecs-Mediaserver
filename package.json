@@ -18,6 +18,8 @@
     "mysql": "*",
     "jwt-simple": "*",
     "moment": "*",
-    "multer": "*"
+    "multer": "*",
+    "jugglingdb": "0.2.x",
+    "jugglingdb-mysql": "*"
   }
 }

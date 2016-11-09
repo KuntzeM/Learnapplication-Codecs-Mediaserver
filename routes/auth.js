@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-
-
-
+var config = require('../config.json');
+var path = require('path');
+var mysql = require('mysql');
+var handleMedia = require('../functions/handleMedia');
 router.use('/video', function (req, res, next) {
 
 
@@ -15,16 +16,25 @@ router.delete('/video/:id', function(req, res, next) {
 });
 
 
-router.post('/image', function (req, res, next) {
+router.post('/image', handleMedia.saveMedia, function (req, res, next) {
 
-    fs.writeFile("storage/images/test.jpg", req.files[0].buffer, function (err) {
+    try {
+        fs.mkdirSync(req.file_path);
+    } catch (e) {
+        if (e.code != 'EEXIST') {
+            res.json({success: false, message: e.message});
+        }
+    }
+    fs.writeFile(req.file_name, req.files[0].buffer, function (err) {
         if (err) {
-            return console.log(err);
+            console.log(err);
+            res.json({success: false, message: err.message});
+        } else {
+            console.log("The file was saved!");
+            res.json({success: true, media_id: req.insertId});
         }
 
-        console.log("The file was saved!");
     });
-    res.json({success: true});
 });
 
 router.delete('/image/:id', function(req, res, next) {

@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-console.log('packages loaded ...')
+console.log('packages loaded ...');
 
 
 app.all('/auth/*', upload.any());
@@ -41,7 +41,7 @@ app.all('/auth/*', jwtauth);
 app.use('/public', public);
 app.use('/auth', auth);
 
-console.log('routes are started.')
+console.log('routes are started.');
 
 app.set('jwtTokenSecret', config.api.key);
 app.set('connection', dbconnection());
