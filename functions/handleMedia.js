@@ -5,8 +5,15 @@ module.exports = {
 
     saveMedia: function (req, res, next) {
         req.file_path = path.join(config.storage.path, req.body.media_type);
-        var time = Date.now();
-        req.file_name = path.join(req.file_path, time.toString() + '_' + req.files[0].originalname);
+        var datetime = new Date();
+        var time = datetime.getFullYear() + "-" +
+            (datetime.getMonth() + 1) + "-" +
+            datetime.getDay() + " " +
+            datetime.getHours() + ":" +
+            datetime.getMinutes() + ":" +
+            datetime.getSeconds();
+
+        req.file_name = path.join(req.file_path, datetime.toString() + '_' + req.files[0].originalname);
 
         if (req.body.name === "") {
             var name = 'unnamed';
@@ -30,24 +37,18 @@ module.exports = {
         }, function (err, results) {
             if (err) {
                 res.json({success: false, message: err.message});
-                return connection.rollback(function () {
-                    res.json({success: false, message: err.message});
-                    //throw err;
-                });
-            }
-            connection.commit(function (err) {
+            } else {
+                connection.commit(function (err) {
 
-                if (err) {
-                    res.json({success: false, message: err.message});
-                    return connection.rollback(function () {
-                        //throw err;
+                    if (err) {
                         res.json({success: false, message: err.message});
-                    });
-                }
-            });
-            console.log('media in database success!');
-            req.media_id = results.insertId;
-            next();
+                    }
+                });
+                console.log('media in database success!');
+                req.media_id = results.insertId;
+                next();
+            }
+
 
         });
     }
