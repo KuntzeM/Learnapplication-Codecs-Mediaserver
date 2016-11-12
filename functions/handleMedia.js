@@ -5,15 +5,10 @@ module.exports = {
 
     saveMedia: function (req, res, next) {
         req.file_path = path.join(config.storage.path, req.body.media_type);
-        var datetime = new Date();
-        var time = datetime.getFullYear() + "-" +
-            (datetime.getMonth() + 1) + "-" +
-            datetime.getDay() + " " +
-            datetime.getHours() + ":" +
-            datetime.getMinutes() + ":" +
-            datetime.getSeconds();
+        var timestamp = new Date();
 
-        req.file_name = path.join(req.file_path, datetime.toString() + '_' + req.files[0].originalname);
+        var time = timestamp.toISOString().slice(0, 19).replace('T', ' ');
+        req.file_name = path.join(req.file_path, timestamp.getTime() + '_' + req.files[0].originalname);
 
         if (req.body.name === "") {
             var name = 'unnamed';
@@ -24,19 +19,16 @@ module.exports = {
         connection = req.app.get("connection");
 
         connection.query({
-            sql: "INSERT INTO " + config.mysql.prefix + "media SET " +
-            "media_type=?, " +
-            "name=?, " +
-            "active=1, " +
-            "demo=1, " +
-            "owner=?, " +
-            "origin_file=?, " +
-            "created_at=?, " +
-            "updated_at=?",
-            values: [req.body.media_type, name, req.decoded.sub, req.file_path, time, time]
+            sql: "INSERT INTO " + config.mysql.prefix + "media " +
+            "(media_type, name, active, demo, owner, manifest, origin_file, created_at, updated_at)" +
+            " VALUES " +
+            "(?, ?, 1, 1, ?, '', ?, ?, ?)",
+            values: [req.body.media_type, name, req.decoded.sub, req.file_name, time, time]
         }, function (err, results) {
             if (err) {
-                res.json({success: false, message: err.message});
+                res.send(JSON.stringify({success: false, message: err.message}));
+                //res.json({success: false, message: err.message});
+                return;
             } else {
                 connection.commit(function (err) {
 
@@ -46,6 +38,34 @@ module.exports = {
                 });
                 console.log('media in database success!');
                 req.media_id = results.insertId;
+                next();
+            }
+
+
+        });
+    },
+    searchMedia: function (req, res, next) {
+
+        connection = req.app.get("connection");
+
+        connection.query({
+            sql: "SELECT origin_file FROM " + config.mysql.prefix + "media WHERE media_id=?",
+            values: [req.params.id]
+        }, function (err, results) {
+            if (err) {
+                res.send(JSON.stringify({success: false, message: err.message}));
+
+                return;
+            } else {
+                connection.commit(function (err) {
+
+                    if (err) {
+                        res.send(JSON.stringify({success: false, message: err.message}));
+
+                        return;
+                    }
+                });
+                req.media_path = results[0].origin_file;
                 next();
             }
 

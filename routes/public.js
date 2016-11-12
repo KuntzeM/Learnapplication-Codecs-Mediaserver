@@ -6,22 +6,20 @@ fs = require('fs');
 path = require('path');
 var config = require('./../config.json');
 var upload = require('jquery-file-upload-middleware');
-
+var handleMedia = require('../functions/handleMedia');
 
 /* GET media files. */
-router.get('/video', function(req, res, next) {
+router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
     try {
-        var img = fs.readFileSync(path.join(config.storage.path, 'images', 'f.png'));
+        var img = fs.readFileSync(req.media_path);
         res.writeHead(200);
         res.end(img, 'binary');
     } catch (err) {
         res.json({success: false, message: err.code});
     }
 });
-router.get('/video/:id', function(req, res, next) {
-    console.log("find all video " + req.params.id);
-});
 
+/*
 
 upload.configure({
     uploadDir: 'storage/images',
@@ -35,9 +33,6 @@ upload.configure({
 });
 
 router.use('/image', upload.fileHandler());
+ */
 
-
-router.get('/image/:id', function(req, res, next) {
-    console.log("find all image " + req.params.id);
-});
 module.exports = router;

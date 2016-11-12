@@ -17,8 +17,8 @@ var dbconnection = require('./functions/connectMysql.js')
 var config = require('./config.json');
 
 // formdata parser
-var multer = require('multer')
-var upload = multer()
+var multer = require('multer');
+var upload = multer();
 
 
 var app = express();
