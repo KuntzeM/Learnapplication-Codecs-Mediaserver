@@ -8,7 +8,7 @@ module.exports = {
         var timestamp = new Date();
 
         var time = timestamp.toISOString().slice(0, 19).replace('T', ' ');
-        req.file_name = path.join(req.file_path, timestamp.getTime() + '_' + req.files[0].originalname);
+        req.file_name = encodeURI(path.join(req.file_path, timestamp.getTime() + '_' + req.files[0].originalname));
 
         if (req.body.name === "") {
             var name = 'unnamed';
@@ -49,7 +49,7 @@ module.exports = {
         connection = req.app.get("connection");
 
         connection.query({
-            sql: "SELECT origin_file FROM " + config.mysql.prefix + "media WHERE media_id=?",
+            sql: "SELECT origin_file, media_type FROM " + config.mysql.prefix + "media WHERE media_id=?",
             values: [req.params.id]
         }, function (err, results) {
             if (err) {
@@ -66,6 +66,7 @@ module.exports = {
                     }
                 });
                 req.media_path = results[0].origin_file;
+                req.media_type = results[0].media_type;
                 next();
             }
 

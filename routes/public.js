@@ -7,32 +7,64 @@ path = require('path');
 var config = require('./../config.json');
 var upload = require('jquery-file-upload-middleware');
 var handleMedia = require('../functions/handleMedia');
+var imMagick = require('imagemagick');
+var ffmpeg = require('fluent-ffmpeg');
 
 /* GET media files. */
 router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    var size = null;
+    if(req.query.size){
+        size = parseInt(req.query.size)
+    }
+
     try {
-        var img = fs.readFileSync(req.media_path);
-        res.writeHead(200);
-        res.end(img, 'binary');
+        if(req.media_type == "image" & size != null){
+            imMagick.resize({
+                srcData: fs.readFileSync(req.media_path, 'binary'),
+                width:   size
+            }, function(err, stdout, stderr){
+                if (err) throw err;
+                res.writeHead(200);
+                res.end(stdout, 'binary');
+            });
+
+        }else{
+            var img = fs.readFileSync(req.media_path);
+            res.writeHead(200);
+            res.end(img, 'binary');
+        }
+
     } catch (err) {
         res.json({success: false, message: err.code});
     }
 });
 
-/*
 
-upload.configure({
-    uploadDir: 'storage/images',
-    uploadUrl: '/image',
-    imageVersions: {
-        thumbnail: {
-            width: 80,
-            height: 80
-        }
-    }
+router.get('/status', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.json({success: true});
 });
 
-router.use('/image', upload.fileHandler());
- */
+router.get('/test', function (req, res, next) {
 
+    var command = ffmpeg('storage/video/1479036404361_Maori%20Boats.MOV')
+        .output('storage/outputfile.mp4')
+        .inputOptions([
+            '-strict -2'
+        ])
+        .videoCodec('libx264').videoBitrate(500).noAudio()
+        .on('start', function(commandLine) {
+            console.log('Spawned Ffmpeg with command: ' + commandLine);
+        }).on('progress', function(progress) {
+            console.log('Processing: ' + progress.percent + '% done');
+        }).on('error', function(err, stdout, stderr) {
+            console.log('Cannot process video: ' + err.message);
+            console.log(stderr);
+        }).run();
+    res.header('Access-Control-Allow-Origin', '*');
+    res.json({success: true});
+
+
+});
 module.exports = router;

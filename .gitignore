@@ -1,5 +1,5 @@
 .idea
-
+node_modules/
 /storage/images/*
 /storage/videos/*
 !/storage/images/.gitignore
