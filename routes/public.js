@@ -19,7 +19,7 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
     }
 
     try {
-        if(req.media_type == "image" & size != null){
+        if (req.media_type == "image" && size != null) {
             imMagick.resize({
                 srcData: fs.readFileSync(req.media_path, 'binary'),
                 width:   size
@@ -47,23 +47,6 @@ router.get('/status', function (req, res, next) {
 });
 
 router.get('/test', function (req, res, next) {
-
-    var command = ffmpeg('storage/video/1479036404361_Maori%20Boats.MOV')
-        .output('storage/outputfile.mp4')
-        .inputOptions([
-            '-strict -2'
-        ])
-        .videoCodec('libx264').videoBitrate(500).noAudio()
-        .on('start', function(commandLine) {
-            console.log('Spawned Ffmpeg with command: ' + commandLine);
-        }).on('progress', function(progress) {
-            console.log('Processing: ' + progress.percent + '% done');
-        }).on('error', function(err, stdout, stderr) {
-            console.log('Cannot process video: ' + err.message);
-            console.log(stderr);
-        }).run();
-    res.header('Access-Control-Allow-Origin', '*');
-    res.json({success: true});
 
 
 });

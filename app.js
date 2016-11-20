@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jwt    = require('jwt-simple');
+var events = require('events');
+
 
 // include routes
 var auth = require('./routes/auth');
@@ -13,6 +15,7 @@ var moment = require('moment');
 
 // include own functions
 var jwtauth = require('./functions/jwtauth.js');
+var transcoding = require('./functions/transcoding');
 var dbconnection = require('./functions/connectMysql.js')
 var config = require('./config.json');
 
@@ -45,6 +48,12 @@ console.log('routes are started.');
 
 app.set('jwtTokenSecret', config.api.key);
 app.set('connection', dbconnection());
+
+
+var transcodeEvent = new events.EventEmitter();
+app.set('transcodeEvent', transcodeEvent);
+transcodeEvent.on('startVideoTranscoding', transcoding.startVideoTranscoding);
+transcodeEvent.on('prepareTranscoding', transcoding.prepareTranscoding);
 
 
 
