@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var config = require('./../config.json');
 var express = require('express');
 var app = express();
+var fs = require('fs');
 var imMagick = require('imagemagick');
 var ffmpeg = require('fluent-ffmpeg');
 var http = require('http');
@@ -11,7 +12,7 @@ module.exports = {
     startVideoTranscoding: function (connection, codec) {
         var transcodeEvent = this;
 
-        var outputname = codec.origin_file.split('.', 1)[0] + '_' + codec.codec + '_' + codec.bitrate + '.' + codec.extension;
+        var outputname = codec.origin_file.split('.', 1)[0] + '_' + codec.codec + '_' + config.codec_config_id + '_' + codec.bitrate + '.' + codec.extension;
         var command = ffmpeg(codec.origin_file)
             .output(outputname)
             .videoCodec(codec.codec).videoBitrate(codec.bitrate)
@@ -54,6 +55,39 @@ module.exports = {
                 });
 
             }).run();
+
+    },
+    startImageTranscoding: function (connection, codec) {
+        var transcodeEvent = this;
+
+        var outputname = codec.origin_file.split('.', 1)[0] + '_' + codec.codec + '_' + codec.codec_config_id + '.' + codec.extension;
+
+        imMagick.convert([codec.origin_file, '-quality', codec.bitrate, codec.optional, outputname], function (err, stdout, stderr) {
+            console.log('image transcoding succeeded !');
+            if (err) throw err;
+
+
+            connection.query({
+                sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
+                ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
+                values: [codec.codec_config_id, codec.media_id, outputname]
+            }, function (error, results, fields) {
+                if (error != null) {
+                    console.log("Error: " + error);
+                } else {
+                    connection.query({
+                        sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
+                        values: [codec.id]
+                    }, function (error, results, fields) {
+                        if (error != null) {
+                            console.log("Error: " + error);
+                        }
+                        transcodeEvent.emit('prepareTranscoding', connection);
+                    });
+                }
+            });
+        });
+
 
     },
 

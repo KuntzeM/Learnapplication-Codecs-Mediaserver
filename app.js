@@ -53,6 +53,7 @@ app.set('connection', dbconnection());
 var transcodeEvent = new events.EventEmitter();
 app.set('transcodeEvent', transcodeEvent);
 transcodeEvent.on('startVideoTranscoding', transcoding.startVideoTranscoding);
+transcodeEvent.on('startImageTranscoding', transcoding.startImageTranscoding);
 transcodeEvent.on('prepareTranscoding', transcoding.prepareTranscoding);
 
 
