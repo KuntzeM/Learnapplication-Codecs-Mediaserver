@@ -56,8 +56,6 @@ transcodeEvent.on('startVideoTranscoding', transcoding.startVideoTranscoding);
 transcodeEvent.on('startImageTranscoding', transcoding.startImageTranscoding);
 transcodeEvent.on('prepareTranscoding', transcoding.prepareTranscoding);
 
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

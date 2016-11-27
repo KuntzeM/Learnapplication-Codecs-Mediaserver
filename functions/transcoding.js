@@ -29,30 +29,59 @@ module.exports = {
             }).on('end', function (stdout, stderr) {
                 console.log('Transcoding succeeded !');
 
-                connection.query({
-                    sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
-                    ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
-                    values: [codec.codec_config_id, codec.media_id, outputname]
-                }, function (error, results, fields) {
-                    if (error != null) {
-                        console.log("Error: " + error);
-                    } else {
-                        connection.query({
-                            sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
-                            values: [codec.id]
-                        }, function (error, results, fields) {
-                            if (error != null) {
-                                console.log("Error: " + error);
-                            }
+                if (codec_num > 0) {
+                    connection.query({
+                        sql: 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
+                        'file_path = ? ' +
+                        'WHERE codec_config_id = ? AND media_id = ?',
+                        values: [outputname, codec.codec_config_id, codec.media_id]
+                    }, function (error, results, fields) {
+                        if (error != null) {
+                            console.log("Error: " + error);
+                        } else {
+                            connection.query({
+                                sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
+                                values: [codec.id]
+                            }, function (error, results, fields) {
+                                if (error != null) {
+                                    console.log("Error: " + error);
+                                }
 
-                            transcodeEvent.emit('prepareTranscoding', connection);
-
-
-                        });
-                    }
+                                transcodeEvent.emit('prepareTranscoding', connection);
 
 
-                });
+                            });
+                        }
+
+
+                    });
+                } else {
+                    connection.query({
+                        sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
+                        ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
+                        values: [codec.codec_config_id, codec.media_id, outputname]
+                    }, function (error, results, fields) {
+                        if (error != null) {
+                            console.log("Error: " + error);
+                        } else {
+                            connection.query({
+                                sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
+                                values: [codec.id]
+                            }, function (error, results, fields) {
+                                if (error != null) {
+                                    console.log("Error: " + error);
+                                }
+
+                                transcodeEvent.emit('prepareTranscoding', connection);
+
+
+                            });
+                        }
+
+
+                    });
+                }
+
 
             }).run();
 
@@ -62,7 +91,14 @@ module.exports = {
 
         var outputname = codec.origin_file.split('.', 1)[0] + '_' + codec.codec + '_' + codec.codec_config_id + '.' + codec.extension;
 
-        imMagick.convert([codec.origin_file, '-quality', codec.bitrate, codec.optional, outputname], function (err, stdout, stderr) {
+        if (codec.optional == "") {
+            var options = [codec.origin_file, '-quality', codec.bitrate, outputname]
+        } else {
+            var options = [codec.origin_file, '-quality', codec.bitrate, codec.optional, outputname]
+        }
+
+
+        imMagick.convert([codec.origin_file, '-quality', codec.bitrate, outputname], function (err, stdout) {
             console.log('image transcoding succeeded !');
             if (err) throw err;
 
@@ -105,8 +141,8 @@ module.exports = {
 
                 connection.query({
                     sql: ' SELECT  c.extension as extension, c.ffmpeg_codec as ffmpeg_codec,  c.media_type as media_type, ffmpeg_bitrate, ffmpeg_parameters FROM `' + config.mysql.prefix + 'codec_configs`' +
-                    'LEFT JOIN `medienprojekt_codecs` AS c ' +
-                    'ON  medienprojekt_codec_configs.codec_id  = c.codec_id ' +
+                    'LEFT JOIN `' + config.mysql.prefix + 'codecs` AS c ' +
+                    'ON  `' + config.mysql.prefix + 'codec_configs.codec_id  = c.codec_id ' +
                     'WHERE codec_config_id = ?',
                     values: [job.codec_config_id]
                 }, function (error, codec_configs, fields) {
@@ -116,9 +152,11 @@ module.exports = {
                     } else {
                         var codec_config = codec_configs[0];
                         connection.query({
-                            sql: ' SELECT  origin_file FROM `' + config.mysql.prefix + 'media`' +
-                            'WHERE media_id = ?',
-                            values: [job.media_id]
+                            sql: 'SELECT m.origin_file, COUNT(mcc.media_codec_config_id) as num FROM `' + config.mysql.prefix + 'media m ' +
+                            'LEFT JOIN `' + config.mysql.prefix + 'media_codec_configs mcc ' +
+                            'ON mcc.media_id = m.media_id ' +
+                            'WHERE m.media_id = ? AND mcc.codec_config_id = ?',
+                            values: [job.media_id, job.codec_config_id]
                         }, function (error, medias, fields) {
                             if (error != null) {
                                 console.log("Error: " + error);
@@ -134,7 +172,8 @@ module.exports = {
                                     'origin_file': media.origin_file,
                                     'id': job.id,
                                     'media_id': job.media_id,
-                                    'codec_config_id': job.codec_config_id
+                                    'codec_config_id': job.codec_config_id,
+                                    'video_exists': media['num']
                                 };
 
                                 if (codec.media_type == 'video') {
