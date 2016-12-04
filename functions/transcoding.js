@@ -29,7 +29,7 @@ module.exports = {
             }).on('end', function (stdout, stderr) {
                 console.log('Transcoding succeeded !');
 
-                if (codec_num > 0) {
+                if (codec.video_exists > 0) {
                     connection.query({
                         sql: 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
                         'file_path = ? ' +
@@ -140,10 +140,10 @@ module.exports = {
                 var job = jobs[0];
 
                 connection.query({
-                    sql: ' SELECT  c.extension as extension, c.ffmpeg_codec as ffmpeg_codec,  c.media_type as media_type, ffmpeg_bitrate, ffmpeg_parameters FROM `' + config.mysql.prefix + 'codec_configs`' +
+                    sql: ' SELECT  c.extension as extension, c.ffmpeg_codec as ffmpeg_codec,  c.media_type as media_type, cc.ffmpeg_bitrate as ffmpeg_bitrate, cc.ffmpeg_parameters as ffmpeg_parameters FROM `' + config.mysql.prefix + 'codec_configs` as cc ' +
                     'LEFT JOIN `' + config.mysql.prefix + 'codecs` AS c ' +
-                    'ON  `' + config.mysql.prefix + 'codec_configs.codec_id  = c.codec_id ' +
-                    'WHERE codec_config_id = ?',
+                    'ON  cc.codec_id  = c.codec_id ' +
+                    'WHERE cc.codec_config_id = ?',
                     values: [job.codec_config_id]
                 }, function (error, codec_configs, fields) {
                     if (error != null) {
@@ -152,8 +152,8 @@ module.exports = {
                     } else {
                         var codec_config = codec_configs[0];
                         connection.query({
-                            sql: 'SELECT m.origin_file, COUNT(mcc.media_codec_config_id) as num FROM `' + config.mysql.prefix + 'media m ' +
-                            'LEFT JOIN `' + config.mysql.prefix + 'media_codec_configs mcc ' +
+                            sql: 'SELECT m.origin_file, COUNT(mcc.media_codec_config_id) as num FROM ' + config.mysql.prefix + 'media m ' +
+                            'LEFT JOIN ' + config.mysql.prefix + 'media_codec_configs mcc ' +
                             'ON mcc.media_id = m.media_id ' +
                             'WHERE m.media_id = ? AND mcc.codec_config_id = ?',
                             values: [job.media_id, job.codec_config_id]
