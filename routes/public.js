@@ -40,6 +40,36 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
     }
 });
 
+/* GET media configuration files. */
+router.get('/media_codec/:media/:config', handleMedia.searchMediaConfig, function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    var size = null;
+    if (req.query.size) {
+        size = parseInt(req.query.size)
+    }
+
+    try {
+        if (req.media_type == "image" && size != null) {
+            imMagick.resize({
+                srcData: fs.readFileSync(req.file_path, 'binary'),
+                width: size
+            }, function (err, stdout, stderr) {
+                if (err) throw err;
+                res.writeHead(200);
+                res.end(stdout, 'binary');
+            });
+
+        } else {
+            var img = fs.readFileSync(req.file_path);
+            res.writeHead(200);
+            res.end(img, 'binary');
+        }
+
+    } catch (err) {
+        res.json({success: false, message: err.code});
+    }
+});
+
 
 router.get('/status', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
