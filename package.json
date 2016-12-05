@@ -20,6 +20,7 @@
     "moment": "*",
     "multer": "*",
     "jugglingdb": "0.2.x",
-    "jugglingdb-mysql": "*"
+    "jugglingdb-mysql": "*",
+    "jquery-file-upload-middleware": "*"
   }
 }
