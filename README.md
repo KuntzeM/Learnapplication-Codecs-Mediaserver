@@ -33,11 +33,11 @@ sudo apt-get install imagemagick
 
 ### Installation
 
-1 Web-Applikation downloaden
+1 Media-Applikation downloaden
 
-`git clone https://github.com/KuntzeM/Medienprojekt-WebServer.git`
+`git clone https://github.com/KuntzeM/Medienprojekt-MediaServer.git`
 
-2 Einstellungen in config.env ändern
+2 Einstellungen in config.json ändern
 - api-key: zufällige längere Zeichenkette -> dient zur Authentifikation des Web-Servers
 - Key muss im Webserver bei Configuration zusammen mit der IP des Media-Servers angegeben werden
 ```
