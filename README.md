@@ -10,8 +10,26 @@ Professor: Prof. Karlheinz Brandenburg
 
 
 #### Probleme bei der Installation?
-Sollte bei der Installation entwas nicht funktionieren z.B. ein Fehler bei der Installation der Abhängigkeiten auftreten, dann schreibe bitte ein Issue hier in github. Wir werden uns zeitnah um das Problem kümmern.
+Sollte bei der Installation etwas nicht funktionieren z.B. ein Fehler bei der Installation der Abhängigkeiten auftreten, dann schreibe bitte ein Issue hier in github. Wir werden uns zeitnah um das Problem kümmern.
 
+### Benötigte Software
+
+* nodejs v6.9.2 include npm 3.10.9
+https://nodejs.org/en/download/
+```
+sudo apt-get install nodejs
+```
+
+* ffmpeg
+http://ffmpeg.org/download.html
+```
+sudo apt-get install ffmpeg
+```
+* imagemagick
+http://www.imagemagick.org/script/binary-releases.php
+```
+sudo apt-get install imagemagick
+```
 
 ### Installation
 
