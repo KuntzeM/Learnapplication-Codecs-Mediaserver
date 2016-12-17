@@ -102,8 +102,60 @@ module.exports = {
             console.log('image transcoding succeeded !');
             if (err) throw err;
 
+            if (codec.video_exists > 0) {
+                connection.query({
+                    sql: 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
+                    'file_path = ? ' +
+                    'WHERE codec_config_id = ? AND media_id = ?',
+                    values: [outputname, codec.codec_config_id, codec.media_id]
+                }, function (error, results, fields) {
+                    if (error != null) {
+                        console.log("Error: " + error);
+                    } else {
+                        connection.query({
+                            sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
+                            values: [codec.id]
+                        }, function (error, results, fields) {
+                            if (error != null) {
+                                console.log("Error: " + error);
+                            }
 
-            connection.query({
+                            transcodeEvent.emit('prepareTranscoding', connection);
+
+
+                        });
+                    }
+
+
+                });
+            } else {
+                connection.query({
+                    sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
+                    ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
+                    values: [codec.codec_config_id, codec.media_id, outputname]
+                }, function (error, results, fields) {
+                    if (error != null) {
+                        console.log("Error: " + error);
+                    } else {
+                        connection.query({
+                            sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
+                            values: [codec.id]
+                        }, function (error, results, fields) {
+                            if (error != null) {
+                                console.log("Error: " + error);
+                            }
+
+                            transcodeEvent.emit('prepareTranscoding', connection);
+
+
+                        });
+                    }
+
+
+                });
+            }
+
+            /*connection.query({
                 sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
                 ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
                 values: [codec.codec_config_id, codec.media_id, outputname]
@@ -121,7 +173,7 @@ module.exports = {
                         transcodeEvent.emit('prepareTranscoding', connection);
                     });
                 }
-            });
+             });*/
         });
 
 

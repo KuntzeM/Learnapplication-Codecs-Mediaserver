@@ -24,9 +24,13 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
                 srcData: fs.readFileSync(req.media_path, 'binary'),
                 width:   size
             }, function(err, stdout, stderr){
-                if (err) throw err;
-                res.writeHead(200);
-                res.end(stdout, 'binary');
+                if (err) {
+                    res.json({success: false, message: err.code});
+                } else {
+                    res.writeHead(200);
+                    res.end(stdout, 'binary');
+                }
+
             });
 
         }else{
@@ -41,7 +45,7 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
 });
 
 /* GET media configuration files. */
-router.get('/media_codec/:media/:config', handleMedia.searchMediaConfig, function (req, res, next) {
+router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     var size = null;
     if (req.query.size) {
@@ -54,9 +58,12 @@ router.get('/media_codec/:media/:config', handleMedia.searchMediaConfig, functio
                 srcData: fs.readFileSync(req.file_path, 'binary'),
                 width: size
             }, function (err, stdout, stderr) {
-                if (err) throw err;
-                res.writeHead(200);
-                res.end(stdout, 'binary');
+                if (err) {
+                    res.json({success: false, message: err.code});
+                } else {
+                    res.writeHead(200);
+                    res.end(stdout, 'binary');
+                }
             });
 
         } else {

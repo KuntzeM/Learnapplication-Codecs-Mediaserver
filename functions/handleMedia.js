@@ -13,7 +13,7 @@ module.exports = {
         if (req.body.name === "") {
             var name = 'unnamed';
         } else {
-            var name = mysql.escape(req.body.name);
+            var name = mysql.escape(req.body.name).substr(1, mysql.escape(req.body.name).length - 2);
         }
 
         connection = req.app.get("connection");
@@ -81,6 +81,36 @@ module.exports = {
             sql: "SELECT mcc.file_path as file_path, m.media_type as media_type FROM " + config.mysql.prefix + "media_codec_configs mcc " +
             "LEFT JOIN  " + config.mysql.prefix + "media m " +
             "ON m.media_id = mcc.media_id " +
+            "WHERE mcc.media_codec_config_id = ?",
+            values: [req.params.media_config]
+        }, function (err, results) {
+            if (err) {
+                res.send(JSON.stringify({success: false, message: err.message}));
+
+                return;
+            } else {
+                connection.commit(function (err) {
+
+                    if (err) {
+                        res.send(JSON.stringify({success: false, message: err.message}));
+
+                        return;
+                    }
+                });
+                req.file_path = results[0].file_path;
+                req.media_type = results[0].media_type;
+                next();
+            }
+
+
+        });
+
+
+        /*
+        connection.query({
+            sql: "SELECT mcc.file_path as file_path, m.media_type as media_type FROM " + config.mysql.prefix + "media_codec_configs mcc " +
+            "LEFT JOIN  " + config.mysql.prefix + "media m " +
+            "ON m.media_id = mcc.media_id " +
             "WHERE mcc.media_id=? AND mcc.codec_config_id=?",
             values: [req.params.media, req.params.config]
         }, function (err, results) {
@@ -104,6 +134,8 @@ module.exports = {
 
 
         });
+
+         */
     }
 
 };
