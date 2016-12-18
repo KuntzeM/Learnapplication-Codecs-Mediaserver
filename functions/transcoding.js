@@ -22,7 +22,17 @@ module.exports = {
             .on('start', function (commandLine) {
                 console.log('Spawned Ffmpeg with command: ' + commandLine);
             }).on('progress', function (progress) {
-                console.log('Processing: ' + '0' + '% done');
+                console.log('Processing: ' + progress.percent + '% done');
+                connection.query({
+                    sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
+                    'process = ? ' +
+                    'WHERE id = ?',
+                    values: [progress.percent, codec.id]
+                }, function (error, results, fields) {
+                    if (error != null) {
+                        console.log("Error: " + error);
+                    }
+                });
             }).on('error', function (err, stdout, stderr) {
                 console.log('Cannot process video: ' + err.message);
                 console.log(stderr);
