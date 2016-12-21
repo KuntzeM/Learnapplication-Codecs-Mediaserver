@@ -53,6 +53,9 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
     }
 
     try {
+        if (req.appendPNG) {
+            req.file_path = req.file_path + '.png';
+        }
         if (req.media_type == "image" && size != null) {
             imMagick.resize({
                 srcData: fs.readFileSync(req.file_path, 'binary'),
@@ -71,6 +74,7 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
             res.writeHead(200);
             res.end(img, 'binary');
         }
+
 
     } catch (err) {
         res.json({success: false, message: err.code});

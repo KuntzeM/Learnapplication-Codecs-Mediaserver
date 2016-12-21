@@ -78,26 +78,24 @@ module.exports = {
         connection = req.app.get("connection");
 
         connection.query({
-            sql: "SELECT mcc.file_path as file_path, m.media_type as media_type FROM " + config.mysql.prefix + "media_codec_configs mcc " +
+            sql: "SELECT mcc.appendPNG as appendPNG, mcc.file_path as file_path, m.media_type as media_type FROM " + config.mysql.prefix + "media_codec_configs mcc " +
             "LEFT JOIN  " + config.mysql.prefix + "media m " +
             "ON m.media_id = mcc.media_id " +
             "WHERE mcc.media_codec_config_id = ?",
             values: [req.params.media_config]
         }, function (err, results) {
-            if (err) {
-                res.send(JSON.stringify({success: false, message: err.message}));
+            if (err || results.length == 0) {
+                res.status(404).send(JSON.stringify({success: false}));
 
-                return;
             } else {
                 connection.commit(function (err) {
 
                     if (err) {
-                        res.send(JSON.stringify({success: false, message: err.message}));
-
-                        return;
+                        res.status(404).send(JSON.stringify({success: false, message: err.message}));
                     }
                 });
                 req.file_path = results[0].file_path;
+                req.appendPNG = results[0].appendPNG;
                 req.media_type = results[0].media_type;
                 next();
             }

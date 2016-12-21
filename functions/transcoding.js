@@ -107,17 +107,24 @@ module.exports = {
             var options = [codec.origin_file, '-quality', codec.bitrate, codec.optional, outputname]
         }
 
+        var appendPNG = 0;
+        if (codec.codec == 'jpeg2000' || codec.codec == 'jp2') {
+            var appendPNG = 1;
+        }
 
-        imMagick.convert([codec.origin_file, '-quality', codec.bitrate, outputname], function (err, stdout) {
-            console.log('image transcoding succeeded !');
+        imMagick.convert(options, function (err, stdout) {
             if (err) throw err;
-
+            console.log('image transcoding succeeded !');
+            var stats = fs.statSync(outputname)
+            var fileSizeInBytes = parseInt(stats["size"]);
             if (codec.video_exists > 0) {
                 connection.query({
                     sql: 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
-                    'file_path = ? ' +
+                    'file_path = ?, ' +
+                    'appendPNG = ?, ' +
+                    'size = "?" ' +
                     'WHERE codec_config_id = ? AND media_id = ?',
-                    values: [outputname, codec.codec_config_id, codec.media_id]
+                    values: [outputname, appendPNG, fileSizeInBytes, codec.codec_config_id, codec.media_id]
                 }, function (error, results, fields) {
                     if (error != null) {
                         console.log("Error: " + error);
@@ -141,8 +148,8 @@ module.exports = {
             } else {
                 connection.query({
                     sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
-                    ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
-                    values: [codec.codec_config_id, codec.media_id, outputname]
+                    ' (codec_config_id, media_id, file_path, appendPNG, size) VALUES (?, ?, ?, ?, ?)',
+                    values: [codec.codec_config_id, codec.media_id, outputname, appendPNG, fileSizeInBytes]
                 }, function (error, results, fields) {
                     if (error != null) {
                         console.log("Error: " + error);
@@ -165,25 +172,15 @@ module.exports = {
                 });
             }
 
-            /*connection.query({
-                sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
-                ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
-                values: [codec.codec_config_id, codec.media_id, outputname]
-            }, function (error, results, fields) {
-                if (error != null) {
-                    console.log("Error: " + error);
-                } else {
-                    connection.query({
-                        sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
-                        values: [codec.id]
-                    }, function (error, results, fields) {
-                        if (error != null) {
-                            console.log("Error: " + error);
-                        }
-                        transcodeEvent.emit('prepareTranscoding', connection);
-                    });
-                }
-             });*/
+            if (appendPNG) {
+
+                var options = [outputname, outputname + '.png']
+                imMagick.convert(options, function (err, stdout) {
+                    if (err) throw err;
+                    console.log('png version from jpeg2000 is transcoded!');
+
+                });
+            }
         });
 
 
