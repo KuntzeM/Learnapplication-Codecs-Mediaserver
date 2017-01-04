@@ -22,7 +22,7 @@ module.exports = {
             .on('start', function (commandLine) {
                 console.log('Spawned Ffmpeg with command: ' + commandLine);
             }).on('progress', function (progress) {
-                console.log('Processing: ' + progress.percent + '% done');
+                console.log('Processing Job-id: ' + codec.id + ' - ' + progress.percent + '% done');
                 connection.query({
                     sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
                     'process = ? ' +
