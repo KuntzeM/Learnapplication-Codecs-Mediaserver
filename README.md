@@ -17,7 +17,7 @@ Sollte bei der Installation etwas nicht funktionieren z.B. ein Fehler bei der In
 * nodejs v6.9.2 include npm 3.10.9
 https://nodejs.org/en/download/
 ```
-sudo apt-get install nodejs
+sudo apt-get install nodejs npm
 ```
 
 * ffmpeg
