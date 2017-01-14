@@ -30,19 +30,23 @@ module.exports = {
                 }, function (error, results) {
                     if (error != null) {
                         console.log("Error: " + error);
-                    }
-                    if (results[0].process <= progress.percent) {
-                        connection.query({
-                            sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
-                            'process = ? ' +
-                            'WHERE id = ?',
-                            values: [progress.percent, codec.id]
-                        }, function (error, results, fields) {
-                            if (error != null) {
-                                console.log("Error: " + error);
+                    } else {
+                        if (results.length > 0) {
+                            if (results[0].process <= progress.percent) {
+                                connection.query({
+                                    sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
+                                    'process = ? ' +
+                                    'WHERE id = ?',
+                                    values: [progress.percent, codec.id]
+                                }, function (error, results, fields) {
+                                    if (error != null) {
+                                        console.log("Error: " + error);
+                                    }
+                                });
                             }
-                        });
+                        }
                     }
+
                 });
             }).on('error', function (err, stdout, stderr) {
                 console.log('Cannot process video: ' + err.message);
