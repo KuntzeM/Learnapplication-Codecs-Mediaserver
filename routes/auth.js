@@ -8,7 +8,17 @@ var handleMedia = require('../functions/handleMedia');
 
 
 router.post('/startTranscoding', function (req, res, next) {
-    connection = req.app.get("connection");
+
+    if (global.isRunningTranscoding) {
+        return res.json({success: true, message: 'ffmpeg is running!'});
+    } else {
+        global.isRunningTranscoding = true;
+        req.app.get('transcodeEvent').emit('prepareTranscoding', connection);
+        return res.json({success: true, message: 'ffmpeg is started!'});
+    }
+    /*
+
+     connection = req.app.get("connection");
 
     connection.query({
         sql: 'SELECT attempts FROM `' + config.mysql.prefix + 'jobs` WHERE `reserved_at` = NULL'
@@ -23,7 +33,7 @@ router.post('/startTranscoding', function (req, res, next) {
             req.app.get('transcodeEvent').emit('prepareTranscoding', connection);
             return res.json({success: true, message: 'ffmpeg is started!'});
         }
-    });
+     });*/
 
 
 });

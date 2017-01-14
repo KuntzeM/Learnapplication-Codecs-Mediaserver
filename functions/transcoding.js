@@ -262,6 +262,9 @@ module.exports = {
 
                 });
 
+            } else {
+                // no jobs
+                global.isRunningTranscoding = false;
             }
         });
 

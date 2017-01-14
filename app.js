@@ -26,7 +26,7 @@ var upload = multer();
 
 var app = express();
 
-
+global.isRunningTranscoding = false;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
