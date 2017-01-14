@@ -24,13 +24,24 @@ module.exports = {
             }).on('progress', function (progress) {
                 console.log('Processing Job-id: ' + codec.id + ' - ' + progress.percent + '% done');
                 connection.query({
-                    sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
-                    'process = ? ' +
+                    sql: 'SELECT process FROM `' + config.mysql.prefix + 'jobs` ' +
                     'WHERE id = ?',
-                    values: [progress.percent, codec.id]
-                }, function (error, results, fields) {
+                    values: [codec.id]
+                }, function (error, results) {
                     if (error != null) {
                         console.log("Error: " + error);
+                    }
+                    if (results[0].process <= progress.percent) {
+                        connection.query({
+                            sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
+                            'process = ? ' +
+                            'WHERE id = ?',
+                            values: [progress.percent, codec.id]
+                        }, function (error, results, fields) {
+                            if (error != null) {
+                                console.log("Error: " + error);
+                            }
+                        });
                     }
                 });
             }).on('error', function (err, stdout, stderr) {
