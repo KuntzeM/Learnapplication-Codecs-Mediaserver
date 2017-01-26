@@ -25,7 +25,7 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
                 width:   size
             }, function(err, stdout, stderr){
                 if (err) {
-                    res.json({success: false, message: err.code});
+                    res.json({success: false, message: err.message});
                 } else {
                     res.writeHead(200);
                     res.end(stdout, 'binary');
@@ -40,7 +40,7 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
         }
 
     } catch (err) {
-        res.json({success: false, message: err.code});
+        res.json({success: false, message: err.message});
     }
 });
 
@@ -62,7 +62,7 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
                 width: size
             }, function (err, stdout, stderr) {
                 if (err) {
-                    res.json({success: false, message: err.code});
+                    res.json({success: false, message: err.message});
                 } else {
                     res.writeHead(200);
                     res.end(stdout, 'binary');

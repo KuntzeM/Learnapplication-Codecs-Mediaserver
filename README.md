@@ -26,9 +26,19 @@ http://ffmpeg.org/download.html
 sudo apt-get install ffmpeg
 ```
 * imagemagick
-http://www.imagemagick.org/script/binary-releases.php
+
+In der Version 6.* befindet sich ein Bug, der das Bild nicht korrekt in JPEG2000 codiert. In der Version 7 ist der Bug beseitigt
+
+Anleitung: http://www.imagemagick.org/script/install-source.php
 ```
-sudo apt-get install imagemagick
+sudo apt-get install libopenjpeg5* libopenjp2-* libpng16-*
+wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+cd ImageMagick-7.0.4
+./configure --enable-shared --with-jpeg --with-openjp2 --with-png
+sudo make
+sudo make install
+sudo ldconfig /usr/local/lib
+
 ```
 
 ### Installation
