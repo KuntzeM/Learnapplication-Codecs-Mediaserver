@@ -53,10 +53,11 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
     }
 
     try {
-        if (req.appendPNG) {
-            req.file_path = req.file_path + '.png';
-        }
+
         if (req.media_type == "image" && size != null) {
+            if (req.convert) {
+                req.file_path = req.file_path + '.png';
+            }
             imMagick.resize({
                 srcData: fs.readFileSync(req.file_path, 'binary'),
                 width: size
@@ -70,7 +71,9 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
             });
 
         } else {
-
+            if (req.convert) {
+                req.file_path = req.file_path + '.mp4';
+            }
             var path = req.file_path;
             var stat = fs.statSync(path);
             var total = stat.size;

@@ -16,25 +16,6 @@ router.post('/startTranscoding', function (req, res, next) {
         req.app.get('transcodeEvent').emit('prepareTranscoding', connection);
         return res.json({success: true, message: 'ffmpeg is started!'});
     }
-    /*
-
-     connection = req.app.get("connection");
-
-    connection.query({
-        sql: 'SELECT attempts FROM `' + config.mysql.prefix + 'jobs` WHERE `reserved_at` = NULL'
-    }, function (error, results, fields) {
-        if (error != null) {
-            console.log("Error: " + error);
-            return res.json({success: false, message: 'Failed to get sql response.'});
-        }
-        if (results.length > 0) {
-            return res.json({success: true, message: 'ffmpeg is running!'});
-        } else {
-            req.app.get('transcodeEvent').emit('prepareTranscoding', connection);
-            return res.json({success: true, message: 'ffmpeg is started!'});
-        }
-     });*/
-
 
 });
 

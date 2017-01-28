@@ -54,41 +54,29 @@ module.exports = {
             }).on('end', function (stdout, stderr) {
                 console.log('Transcoding succeeded !');
 
+                var stats = fs.statSync(outputname);
+                var fileSizeInBytes = parseInt(stats["size"]);
+
                 if (codec.video_exists > 0) {
-                    connection.query({
-                        sql: 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
-                        'file_path = ? ' +
-                        'WHERE codec_config_id = ? AND media_id = ?',
-                        values: [outputname, codec.codec_config_id, codec.media_id]
-                    }, function (error, results, fields) {
-                        if (error != null) {
-                            console.log("Error: " + error);
-                        } else {
-                            connection.query({
-                                sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
-                                values: [codec.id]
-                            }, function (error, results, fields) {
-                                if (error != null) {
-                                    console.log("Error: " + error);
-                                }
-
-                                transcodeEvent.emit('prepareTranscoding', connection);
-
-
-                            });
-                        }
-
-
-                    });
+                    var sql = 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
+                        'file_path = ?, ' +
+                        'size = "?" ' +
+                        'WHERE codec_config_id = ? AND media_id = ?';
+                    var values = [outputname, fileSizeInBytes, codec.codec_config_id, codec.media_id];
                 } else {
-                    connection.query({
-                        sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
-                        ' (codec_config_id, media_id, file_path) VALUES (?, ?, ?)',
-                        values: [codec.codec_config_id, codec.media_id, outputname]
-                    }, function (error, results, fields) {
-                        if (error != null) {
-                            console.log("Error: " + error);
-                        } else {
+                    var sql = 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
+                        ' (codec_config_id, media_id, file_path, size) VALUES (?, ?, ?, ?)';
+                    var values = [codec.codec_config_id, codec.media_id, outputname, fileSizeInBytes];
+                }
+
+                connection.query({
+                    sql: sql,
+                    values: values
+                }, function (error, results, fields) {
+                    if (error != null) {
+                        console.log("Error: " + error);
+                    } else {
+                        if (!codec.convert) {
                             connection.query({
                                 sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
                                 values: [codec.id]
@@ -96,15 +84,65 @@ module.exports = {
                                 if (error != null) {
                                     console.log("Error: " + error);
                                 }
-
                                 transcodeEvent.emit('prepareTranscoding', connection);
-
-
                             });
                         }
+                    }
+                });
 
 
-                    });
+                if (codec.convert) {
+                    var flag = true;
+                    var command = ffmpeg(outputname)
+                        .output(outputname + '.mp4')
+                        .videoCodec('libx264').videoBitrate(20000)
+                        .inputOptions([
+                            '-strict -2'
+                        ]).noAudio()
+                        .on('start', function (commandLine) {
+                            console.log('Spawned Ffmpeg with command: ' + commandLine);
+                        }).on('progress', function (progress) {
+                            console.log('Processing Job-id: ' + codec.id + ' - ' + progress.percent + '% done');
+                            connection.query({
+                                sql: 'SELECT process FROM `' + config.mysql.prefix + 'jobs` ' +
+                                'WHERE id = ?',
+                                values: [codec.id]
+                            }, function (error, results) {
+                                if (error != null) {
+                                    console.log("Error: " + error);
+                                } else {
+                                    if (results.length > 0) {
+                                        if ((results[0].process <= progress.percent) || flag) {
+                                            flag = false;
+                                            connection.query({
+                                                sql: 'UPDATE `' + config.mysql.prefix + 'jobs` SET ' +
+                                                'process = ? ' +
+                                                'WHERE id = ?',
+                                                values: [progress.percent, codec.id]
+                                            }, function (error, results, fields) {
+                                                if (error != null) {
+                                                    console.log("Error: " + error);
+                                                }
+                                            });
+                                        }
+                                    }
+                                }
+
+                            });
+                        }).on('error', function (err, stdout, stderr) {
+                            console.log('Cannot process video: ' + err.message);
+                            console.log(stderr);
+                        }).on('end', function (stdout, stderr) {
+                            connection.query({
+                                sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
+                                values: [codec.id]
+                            }, function (error, results, fields) {
+                                if (error != null) {
+                                    console.log("Error: " + error);
+                                }
+                                transcodeEvent.emit('prepareTranscoding', connection);
+                            });
+                        }).run();
                 }
 
 
@@ -122,49 +160,55 @@ module.exports = {
             var options = [codec.origin_file, '-quality', codec.bitrate, codec.optional, outputname]
         }
 
-        var appendPNG = 0;
-        if (codec.codec == 'jpeg2000' || codec.codec == 'jp2') {
-            var appendPNG = 1;
-        }
-
+        /*
+         * transcode image
+         */
         imMagick.convert(options, function (err, stdout) {
-            if (err) throw err;
-            console.log('image transcoding succeeded !');
-            var stats = fs.statSync(outputname)
-            var fileSizeInBytes = parseInt(stats["size"]);
-            if (codec.video_exists > 0) {
-                connection.query({
-                    sql: 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
-                    'file_path = ?, ' +
-                    'appendPNG = ?, ' +
-                    'size = "?" ' +
-                    'WHERE codec_config_id = ? AND media_id = ?',
-                    values: [outputname, appendPNG, fileSizeInBytes, codec.codec_config_id, codec.media_id]
-                }, function (error, results, fields) {
-                    if (error != null) {
-                        console.log("Error: " + error);
-                    } else {
-                        connection.query({
-                            sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
-                            values: [codec.id]
-                        }, function (error, results, fields) {
-                            if (error != null) {
-                                console.log("Error: " + error);
-                            }
-
-                            transcodeEvent.emit('prepareTranscoding', connection);
-
-
-                        });
-                    }
-
-
-                });
+            if (err) {
+                console.log(err.message);
             } else {
+
+                console.log('image transcoding succeeded !');
+                var stats = fs.statSync(outputname)
+                var fileSizeInBytes = parseInt(stats["size"]);
+
+                /*
+                 * update (if exists) or insert file reference to database
+                 */
+                if (codec.video_exists > 0) {
+                    var sql = 'UPDATE `' + config.mysql.prefix + 'media_codec_configs` SET ' +
+                        'file_path = ?, ' +
+                        'size = "?" ' +
+                        'WHERE codec_config_id = ? AND media_id = ?';
+                    var values = [outputname, fileSizeInBytes, codec.codec_config_id, codec.media_id];
+
+                } else {
+                    var sql = 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
+                        ' (codec_config_id, media_id, file_path, size) VALUES (?, ?, ?, ?)';
+                    var values = [codec.codec_config_id, codec.media_id, outputname, fileSizeInBytes];
+                }
+
+                /*
+                 * if browser cannot show file, than image will be transcoded to png.
+                 */
+                if (codec.convert) {
+
+                    var options = [outputname, outputname + '.png']
+                    imMagick.convert(options, function (err, stdout) {
+                        if (err) {
+                            console.log(err.message);
+                        } else {
+                            console.log('png version is transcoded!');
+                        }
+                    });
+                }
+
+                /*
+                 * delete job from queue
+                 */
                 connection.query({
-                    sql: 'INSERT INTO `' + config.mysql.prefix + 'media_codec_configs`' +
-                    ' (codec_config_id, media_id, file_path, appendPNG, size) VALUES (?, ?, ?, ?, ?)',
-                    values: [codec.codec_config_id, codec.media_id, outputname, appendPNG, fileSizeInBytes]
+                    sql: sql,
+                    values: values
                 }, function (error, results, fields) {
                     if (error != null) {
                         console.log("Error: " + error);
@@ -179,22 +223,13 @@ module.exports = {
 
                             transcodeEvent.emit('prepareTranscoding', connection);
 
-
                         });
                     }
 
 
                 });
-            }
 
-            if (appendPNG) {
 
-                var options = [outputname, outputname + '.png']
-                imMagick.convert(options, function (err, stdout) {
-                    if (err) throw err;
-                    console.log('png version from jpeg2000 is transcoded!');
-
-                });
             }
         });
 
@@ -214,7 +249,7 @@ module.exports = {
                 var job = jobs[0];
 
                 connection.query({
-                    sql: ' SELECT  c.extension as extension, c.ffmpeg_codec as ffmpeg_codec,  c.media_type as media_type, cc.ffmpeg_bitrate as ffmpeg_bitrate, cc.ffmpeg_parameters as ffmpeg_parameters FROM `' + config.mysql.prefix + 'codec_configs` as cc ' +
+                    sql: ' SELECT  c.extension as extension, c.ffmpeg_codec as ffmpeg_codec, c.convert, c.media_type as media_type, cc.ffmpeg_bitrate as ffmpeg_bitrate, cc.ffmpeg_parameters as ffmpeg_parameters FROM `' + config.mysql.prefix + 'codec_configs` as cc ' +
                     'LEFT JOIN `' + config.mysql.prefix + 'codecs` AS c ' +
                     'ON  cc.codec_id  = c.codec_id ' +
                     'WHERE cc.codec_config_id = ?',
@@ -244,6 +279,7 @@ module.exports = {
                                     'optional': codec_config.ffmpeg_parameters,
                                     'media_type': codec_config.media_type,
                                     'origin_file': media.origin_file,
+                                    'convert': codec_config.convert,
                                     'id': job.id,
                                     'media_id': job.media_id,
                                     'codec_config_id': job.codec_config_id,
