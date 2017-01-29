@@ -78,7 +78,7 @@ module.exports = {
         connection = req.app.get("connection");
 
         connection.query({
-            sql: "SELECT c.convert, mcc.file_path as file_path, m.media_type as media_type FROM " + config.mysql.prefix + "media_codec_configs mcc " +
+            sql: "SELECT c.convert, mcc.file_path as file_path, m.media_type as media_type, mcc.size FROM " + config.mysql.prefix + "media_codec_configs mcc " +
             "LEFT JOIN  " + config.mysql.prefix + "media m " +
             "ON m.media_id = mcc.media_id " +
             "LEFT JOIN  " + config.mysql.prefix + "codec_configs cc " +
@@ -100,6 +100,7 @@ module.exports = {
                 });
                 req.file_path = results[0].file_path;
                 req.convert = results[0].convert;
+                req.size = results[0].size;
                 req.media_type = results[0].media_type;
                 next();
             }

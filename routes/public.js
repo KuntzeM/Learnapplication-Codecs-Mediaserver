@@ -54,21 +54,27 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
 
     try {
 
-        if (req.media_type == "image" && size != null) {
+        if (req.media_type == "image") {
             if (req.convert) {
                 req.file_path = req.file_path + '.png';
             }
-            imMagick.resize({
-                srcData: fs.readFileSync(req.file_path, 'binary'),
-                width: size
-            }, function (err, stdout, stderr) {
-                if (err) {
-                    res.json({success: false, message: err.message});
-                } else {
-                    res.writeHead(200);
-                    res.end(stdout, 'binary');
-                }
-            });
+            if (size != null) {
+                imMagick.resize({
+                    srcData: fs.readFileSync(req.file_path, 'binary'),
+                    width: size
+                }, function (err, stdout, stderr) {
+                    if (err) {
+                        res.json({success: false, message: err.message});
+                    } else {
+                        res.writeHead(200, {'Content-Type': 'image'});
+                        res.end(stdout, 'binary');
+                    }
+                });
+            } else {
+                res.writeHead(200, {'Content-Type': 'image'});
+                res.end(fs.readFileSync(req.file_path), 'binary');
+            }
+
 
         } else {
             if (req.convert) {
@@ -93,12 +99,12 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
                     'Content-Range': 'bytes ' + start + '-' + end + '/' + total,
                     'Accept-Ranges': 'bytes',
                     'Content-Length': chunksize,
-                    'Content-Type': 'video/mp4'
+                    'Content-Type': 'video'
                 });
                 file.pipe(res);
             } else {
                 console.log('ALL: ' + total);
-                res.writeHead(200, {'Content-Length': total, 'Content-Type': 'video/mp4'});
+                res.writeHead(200, {'Content-Length': total, 'Content-Type': 'video'});
                 fs.createReadStream(path).pipe(res);
             }
             /*
