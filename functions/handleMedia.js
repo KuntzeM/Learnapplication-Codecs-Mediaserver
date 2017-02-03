@@ -46,7 +46,7 @@ module.exports = {
     },
     searchMedia: function (req, res, next) {
 
-        connection = req.app.get("connection");
+        //connection = req.app.get("connection");
 
         connection.query({
             sql: "SELECT origin_file, media_type FROM " + config.mysql.prefix + "media WHERE media_id=?",

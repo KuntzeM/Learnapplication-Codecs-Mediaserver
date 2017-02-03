@@ -9,9 +9,11 @@ var upload = require('jquery-file-upload-middleware');
 var handleMedia = require('../functions/handleMedia');
 var imMagick = require('imagemagick');
 var ffmpeg = require('fluent-ffmpeg');
+var logger = require('./../functions/logger');
 
 /* GET media files. */
 router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
+    logger.log('warn', 'Everything started properly.');
     res.header('Access-Control-Allow-Origin', '*');
     var size = null;
     if(req.query.size){

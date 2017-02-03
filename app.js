@@ -27,6 +27,7 @@ var upload = multer();
 var app = express();
 
 global.isRunningTranscoding = false;
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -64,7 +65,8 @@ app.use('/auth', auth);
 console.log('routes are started.');
 
 app.set('jwtTokenSecret', config.api.key);
-app.set('connection', dbconnection());
+global.connection = dbconnection();
+//app.set('connection', dbconnection());
 
 
 var transcodeEvent = new events.EventEmitter();
@@ -79,6 +81,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
 
 // error handlers
 
