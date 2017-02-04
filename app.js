@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
+//var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jwt    = require('jwt-simple');
@@ -18,7 +18,8 @@ var jwtauth = require('./functions/jwtauth.js');
 var transcoding = require('./functions/transcoding');
 var dbconnection = require('./functions/connectMysql.js')
 var config = require('./config.json');
-
+var logger = require('./functions/logger');
+logger.debugLevel = 'info';
 // formdata parser
 var multer = require('multer');
 var upload = multer();
@@ -46,7 +47,7 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

@@ -13,7 +13,7 @@ var logger = require('./../functions/logger');
 
 /* GET media files. */
 router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
-    logger.log('warn', 'Everything started properly.');
+
     res.header('Access-Control-Allow-Origin', '*');
     var size = null;
     if(req.query.size){
@@ -27,6 +27,7 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
                 width:   size
             }, function(err, stdout, stderr){
                 if (err) {
+                    logger.log('error', 'imagemagick resize failure: ' + err.message);
                     res.json({success: false, message: err.message});
                 } else {
                     res.writeHead(200);
@@ -42,6 +43,7 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
         }
 
     } catch (err) {
+        logger.log('error', 'imagemagick failure: ' + err.message);
         res.json({success: false, message: err.message});
     }
 });
@@ -66,6 +68,7 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
                     width: size
                 }, function (err, stdout, stderr) {
                     if (err) {
+                        logger.log('error', 'imagemagick resize failure: ' + err.message);
                         res.json({success: false, message: err.message});
                     } else {
                         res.writeHead(200, {'Content-Type': 'image'});
@@ -94,7 +97,6 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
                 var start = parseInt(partialstart, 10);
                 var end = partialend ? parseInt(partialend, 10) : total - 1;
                 var chunksize = (end - start) + 1;
-                console.log('RANGE: ' + start + ' - ' + end + ' = ' + chunksize);
 
                 var file = fs.createReadStream(path, {start: start, end: end});
                 res.writeHead(206, {
@@ -105,22 +107,15 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
                 });
                 file.pipe(res);
             } else {
-                console.log('ALL: ' + total);
                 res.writeHead(200, {'Content-Length': total, 'Content-Type': 'video'});
                 fs.createReadStream(path).pipe(res);
             }
-            /*
-            var img = fs.readFileSync(req.file_path);
-            res.writeHead(200);
-            res.end(img, 'binary');
-             */
-
-
         }
 
 
     } catch (err) {
-        res.json({success: false, message: err.code});
+        logger.log('error', 'imagemagick or readStream failure: ' + err.message);
+        res.json({success: false, message: err.message});
     }
 });
 

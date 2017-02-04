@@ -6,6 +6,8 @@ var fs = require('fs');
 var imMagick = require('imagemagick');
 var ffmpeg = require('fluent-ffmpeg');
 var http = require('http');
+var logger = require('./../functions/logger');
+
 
 module.exports = {
 
@@ -20,7 +22,7 @@ module.exports = {
                 '-strict -2'
             ]).noAudio()
             .on('start', function (commandLine) {
-                console.log('Spawned Ffmpeg with command: ' + commandLine);
+                logger.log('info', 'Spawned Ffmpeg with command: ' + commandLine);
             }).on('progress', function (progress) {
                 console.log('Processing Job-id: ' + codec.id + ' - ' + progress.percent + '% done');
                 connection.query({
@@ -29,7 +31,7 @@ module.exports = {
                     values: [codec.id]
                 }, function (error, results) {
                     if (error != null) {
-                        console.log("Error: " + error);
+                        logger.log('error', 'sql failure: ' + this.sql);
                     } else {
                         if (results.length > 0) {
                             if (results[0].process <= progress.percent) {
@@ -40,7 +42,7 @@ module.exports = {
                                     values: [progress.percent, codec.id]
                                 }, function (error, results, fields) {
                                     if (error != null) {
-                                        console.log("Error: " + error);
+                                        logger.log('error', 'sql failure: ' + this.sql);
                                     }
                                 });
                             }
@@ -49,10 +51,9 @@ module.exports = {
 
                 });
             }).on('error', function (err, stdout, stderr) {
-                console.log('Cannot process video: ' + err.message);
-                console.log(stderr);
+                logger.log('error', 'Cannot process video transcoding: ' + err.message);
             }).on('end', function (stdout, stderr) {
-                console.log('Transcoding succeeded !');
+                logger.log('info', 'Transcoding succeed! media_id: ' + codec.media_id + ' / codec_config_id: ' + codec.codec_config_id);
 
                 var stats = fs.statSync(outputname);
                 var fileSizeInBytes = parseInt(stats["size"]);
@@ -74,7 +75,7 @@ module.exports = {
                     values: values
                 }, function (error, results, fields) {
                     if (error != null) {
-                        console.log("Error: " + error);
+                        logger.log('error', 'sql failure: ' + this.sql);
                     } else {
                         if (!codec.convert) {
                             connection.query({
@@ -82,7 +83,7 @@ module.exports = {
                                 values: [codec.id]
                             }, function (error, results, fields) {
                                 if (error != null) {
-                                    console.log("Error: " + error);
+                                    logger.log('error', 'sql failure: ' + this.sql);
                                 }
                                 transcodeEvent.emit('prepareTranscoding', connection);
                             });
@@ -100,7 +101,7 @@ module.exports = {
                             '-strict -2'
                         ]).noAudio()
                         .on('start', function (commandLine) {
-                            console.log('Spawned Ffmpeg with command: ' + commandLine);
+                            logger.log('info', 'Spawned Ffmpeg with command: ' + commandLine);
                         }).on('progress', function (progress) {
                             console.log('Processing Job-id: ' + codec.id + ' - ' + progress.percent + '% done');
                             connection.query({
@@ -109,7 +110,7 @@ module.exports = {
                                 values: [codec.id]
                             }, function (error, results) {
                                 if (error != null) {
-                                    console.log("Error: " + error);
+                                    logger.log('error', 'sql failure: ' + this.sql);
                                 } else {
                                     if (results.length > 0) {
                                         if ((results[0].process <= progress.percent) || flag) {
@@ -121,7 +122,7 @@ module.exports = {
                                                 values: [progress.percent, codec.id]
                                             }, function (error, results, fields) {
                                                 if (error != null) {
-                                                    console.log("Error: " + error);
+                                                    logger.log('error', 'sql failure: ' + this.sql);
                                                 }
                                             });
                                         }
@@ -130,15 +131,15 @@ module.exports = {
 
                             });
                         }).on('error', function (err, stdout, stderr) {
-                            console.log('Cannot process video: ' + err.message);
-                            console.log(stderr);
+                            logger.log('error', 'Cannot process video transcoding (second coding to h264): ' + err.message);
                         }).on('end', function (stdout, stderr) {
+                            logger.log('info', 'Transcoding succeed! (second coding to h264) media_id: ' + codec.media_id + ' / codec_config_id: ' + codec.codec_config_id);
                             connection.query({
                                 sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
                                 values: [codec.id]
                             }, function (error, results, fields) {
                                 if (error != null) {
-                                    console.log("Error: " + error);
+                                    logger.log('error', 'sql failure: ' + this.sql);
                                 }
                                 transcodeEvent.emit('prepareTranscoding', connection);
                             });
@@ -165,11 +166,11 @@ module.exports = {
          */
         imMagick.convert(options, function (err, stdout) {
             if (err) {
-                console.log(err.message);
+                logger.log('error', 'imagemagick failure: ' + error.message);
             } else {
 
-                console.log('image transcoding succeeded !');
-                var stats = fs.statSync(outputname)
+                logger.log('info', 'image transcoding was success!  media_id: ' + codec.media_id + ' / codec_config_id: ' + codec.codec_config_id);
+                var stats = fs.statSync(outputname);
                 var fileSizeInBytes = parseInt(stats["size"]);
 
                 /*
@@ -196,9 +197,9 @@ module.exports = {
                     var options = [outputname, outputname + '.png']
                     imMagick.convert(options, function (err, stdout) {
                         if (err) {
-                            console.log(err.message);
+                            logger.log('error', 'imagemagick failure: ' + error.message);
                         } else {
-                            console.log('png version is transcoded!');
+                            logger.log('info', 'png version is transcoded!  media_id: ' + codec.media_id + ' / codec_config_id: ' + codec.codec_config_id);
                         }
                     });
                 }
@@ -211,29 +212,22 @@ module.exports = {
                     values: values
                 }, function (error, results, fields) {
                     if (error != null) {
-                        console.log("Error: " + error);
+                        logger.log('error', 'sql failure: ' + this.sql);
                     } else {
                         connection.query({
                             sql: 'DELETE FROM `' + config.mysql.prefix + 'jobs` WHERE id=?',
                             values: [codec.id]
                         }, function (error, results, fields) {
                             if (error != null) {
-                                console.log("Error: " + error);
+                                logger.log('error', 'sql failure: ' + this.sql);
                             }
 
                             transcodeEvent.emit('prepareTranscoding', connection);
-
                         });
                     }
-
-
                 });
-
-
             }
         });
-
-
     },
 
     prepareTranscoding: function (connection) {
@@ -242,8 +236,7 @@ module.exports = {
             sql: 'SELECT * FROM `' + config.mysql.prefix + 'jobs` LIMIT 1'
         }, function (error, jobs, fields) {
             if (error != null) {
-                console.log("Error: " + error);
-
+                logger.log('error', 'sql failure: ' + this.sql);
             }
             if (jobs.length == 1) {
                 var job = jobs[0];
@@ -256,8 +249,7 @@ module.exports = {
                     values: [job.codec_config_id]
                 }, function (error, codec_configs, fields) {
                     if (error != null) {
-                        console.log("Error: " + error);
-
+                        logger.log('error', 'sql failure: ' + this.sql);
                     } else {
                         var codec_config = codec_configs[0];
                         connection.query({
@@ -268,8 +260,7 @@ module.exports = {
                             values: [job.media_id, job.codec_config_id]
                         }, function (error, medias, fields) {
                             if (error != null) {
-                                console.log("Error: " + error);
-
+                                logger.log('error', 'sql failure: ' + this.sql);
                             } else {
                                 var media = medias[0];
                                 var codec = {
@@ -294,20 +285,14 @@ module.exports = {
                             }
                         });
                     }
-
-
                 });
 
             } else {
-                // no jobs
+                logger.log('info', 'No jobs are in the queue. Transcoding process is stopping!');
                 global.isRunningTranscoding = false;
             }
         });
-
-
     }
-
-
 };
 
 

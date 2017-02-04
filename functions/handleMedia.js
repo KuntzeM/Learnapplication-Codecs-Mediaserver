@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 var config = require('./../config.json');
+var logger = require('./../functions/logger');
 
 module.exports = {
 
@@ -16,8 +17,6 @@ module.exports = {
             var name = mysql.escape(req.body.name).substr(1, mysql.escape(req.body.name).length - 2);
         }
 
-        connection = req.app.get("connection");
-
         connection.query({
             sql: "INSERT INTO " + config.mysql.prefix + "media " +
             "(media_type, name, active, demo, owner, manifest, origin_file, created_at, updated_at)" +
@@ -26,18 +25,13 @@ module.exports = {
             values: [req.body.media_type, name, req.decoded.sub, req.file_name, time, time]
         }, function (err, results) {
             if (err) {
+                logger.log('error', 'sql failure: ' + this.sql);
                 res.send(JSON.stringify({success: false, message: err.message}));
-                //res.json({success: false, message: err.message});
                 return;
             } else {
-                connection.commit(function (err) {
-
-                    if (err) {
-                        res.json({success: false, message: err.message});
-                    }
-                });
-                console.log('media in database success!');
                 req.media_id = results.insertId;
+                logger.log('info', 'media file with id ' + req.media_id + ' is saved!');
+
                 next();
             }
 
@@ -45,38 +39,22 @@ module.exports = {
         });
     },
     searchMedia: function (req, res, next) {
-
-        //connection = req.app.get("connection");
-
         connection.query({
             sql: "SELECT origin_file, media_type FROM " + config.mysql.prefix + "media WHERE media_id=?",
             values: [req.params.id]
         }, function (err, results) {
             if (err) {
+                logger.log('error', 'sql failure: ' + this.sql);
                 res.send(JSON.stringify({success: false, message: err.message}));
-
                 return;
             } else {
-                connection.commit(function (err) {
-
-                    if (err) {
-                        res.send(JSON.stringify({success: false, message: err.message}));
-
-                        return;
-                    }
-                });
                 req.media_path = results[0].origin_file;
                 req.media_type = results[0].media_type;
                 next();
             }
-
-
         });
     },
     searchMediaConfig: function (req, res, next) {
-
-        connection = req.app.get("connection");
-
         connection.query({
             sql: "SELECT c.convert, mcc.file_path as file_path, m.media_type as media_type, mcc.size FROM " + config.mysql.prefix + "media_codec_configs mcc " +
             "LEFT JOIN  " + config.mysql.prefix + "media m " +
@@ -88,57 +66,19 @@ module.exports = {
             "WHERE mcc.media_codec_config_id = ?",
             values: [req.params.media_config]
         }, function (err, results) {
-            if (err || results.length == 0) {
+            if (err) {
+                logger.log('error', 'sql failure: ' + this.sql);
                 res.status(404).send(JSON.stringify({success: false}));
 
+            } else if (results.length == 0) {
+                logger.log('warn', 'no media file with this configuration founded. media_config_id: ' + req.params.media_config);
             } else {
-                connection.commit(function (err) {
-
-                    if (err) {
-                        res.status(404).send(JSON.stringify({success: false, message: err.message}));
-                    }
-                });
                 req.file_path = results[0].file_path;
                 req.convert = results[0].convert;
                 req.size = results[0].size;
                 req.media_type = results[0].media_type;
                 next();
             }
-
-
         });
-
-
-        /*
-        connection.query({
-            sql: "SELECT mcc.file_path as file_path, m.media_type as media_type FROM " + config.mysql.prefix + "media_codec_configs mcc " +
-            "LEFT JOIN  " + config.mysql.prefix + "media m " +
-            "ON m.media_id = mcc.media_id " +
-            "WHERE mcc.media_id=? AND mcc.codec_config_id=?",
-            values: [req.params.media, req.params.config]
-        }, function (err, results) {
-            if (err) {
-                res.send(JSON.stringify({success: false, message: err.message}));
-
-                return;
-            } else {
-                connection.commit(function (err) {
-
-                    if (err) {
-                        res.send(JSON.stringify({success: false, message: err.message}));
-
-                        return;
-                    }
-                });
-                req.file_path = results[0].file_path;
-                req.media_type = results[0].media_type;
-                next();
-            }
-
-
-        });
-
-         */
     }
-
 };
