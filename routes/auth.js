@@ -7,6 +7,7 @@ var mysql = require('mysql');
 var handleMedia = require('../functions/handleMedia');
 var logger = require('./../functions/logger');
 
+
 router.post('/startTranscoding', function (req, res, next) {
 
     if (global.isRunningTranscoding) {
@@ -20,7 +21,7 @@ router.post('/startTranscoding', function (req, res, next) {
     }
 });
 
-
+/*
 router.post('/media', handleMedia.saveMedia, function (req, res, next) {
     try {
         fs.mkdirSync(req.file_path);
@@ -40,7 +41,8 @@ router.post('/media', handleMedia.saveMedia, function (req, res, next) {
         }
     });
 });
-
+ */
+/*
 router.delete('/media/:id', function (req, res, next) {
     connection.query({
         sql: 'SELECT m.origin_file, mcc.file_path FROM `medienprojekt_media` as m ' +
@@ -86,7 +88,7 @@ router.delete('/media/:id', function (req, res, next) {
 
 
 });
-
+ */
 /*
  * RESTful for Logger
  */

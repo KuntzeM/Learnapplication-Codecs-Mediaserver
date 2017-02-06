@@ -13,15 +13,13 @@ module.exports = {
             }
             console.log(level + ': ' + message);
             time = new Date().toISOString().slice(0, 19).replace('T', ' ');
-            connection.query({
-                sql: "INSERT INTO " + config.mysql.prefix + "log (level, message, created_at, updated_at) VALUE (?, ?, ?, ?)",
-                values: [level, message, time, time]
-            }, function (err, results) {
-                a = 1;
-            });
 
+            var log = {
+                'level': level,
+                'message': message,
+                'created_at': time
+            };
+            DB_Logs.push('/log[]', log, true);
         }
-
     }
-
 };

@@ -17,27 +17,15 @@ module.exports = function(req, res, next) {
                 var decoded = jwt.decode(token, req.app.get('jwtTokenSecret'), true);
                 req.decoded = decoded;
 
-                connection.query({
-                    sql: 'SELECT * FROM `' + config.mysql.prefix + 'users` WHERE `id` = ? and `password` = ?',
-                    values: [decoded.sub, decoded.password]
-                }, function (error, results, fields) {
-
-                    if (error != null) {
-                        logger.log('error', 'sql failure: ' + this.sql);
-                        return res.json({success: false, message: 'Failed to get sql response.'});
-                    }
-                    if (results.length == 1) {
-                        req.decoded = decoded;
-                        next();
-                    } else {
-                        logger.log('warn', 'User doesn\'t exist!');
-                        return res.json({success: false, message: 'User doesn\'t exist!'});
-                    }
-                });
-
+                if (req.decoded.token == req.app.get('jwtTokenSecret')) {
+                    next();
+                } else {
+                    logger.log('warn', 'Failed to authenticate token.');
+                    return res.status(403).send({success: false, message: 'Failed to authenticate token.'});
+                }
             } catch (err) {
                 logger.log('warn', 'Failed to authenticate token.');
-                return res.json({success: false, message: 'Failed to authenticate token.'});
+                return res.status(403).send({success: false, message: 'Failed to authenticate token.'});
             }
 
 

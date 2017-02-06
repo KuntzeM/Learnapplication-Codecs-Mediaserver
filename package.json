@@ -22,6 +22,8 @@
     "jugglingdb": "0.2.x",
     "jugglingdb-mysql": "*",
     "jquery-file-upload-middleware": "*",
-    "logging": "*"
+    "logging": "*",
+    "mime": "*",
+    "node-json-db": "*"
   }
 }

@@ -11,7 +11,7 @@ var imMagick = require('imagemagick');
 var ffmpeg = require('fluent-ffmpeg');
 var logger = require('./../functions/logger');
 
-/* GET media files. */
+/* GET media files.
 router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
 
     res.header('Access-Control-Allow-Origin', '*');
@@ -47,8 +47,8 @@ router.get('/media/:id', handleMedia.searchMedia, function (req, res, next) {
         res.json({success: false, message: err.message});
     }
 });
-
-/* GET media configuration files. */
+ */
+/* GET media configuration files.
 router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     var size = null;
@@ -118,15 +118,12 @@ router.get('/media_codec/:media_config', handleMedia.searchMediaConfig, function
         res.json({success: false, message: err.message});
     }
 });
-
+ */
 
 router.get('/status', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.json({success: true});
 });
 
-router.get('/test', function (req, res, next) {
 
-
-});
 module.exports = router;

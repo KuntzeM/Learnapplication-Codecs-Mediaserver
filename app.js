@@ -6,11 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jwt    = require('jwt-simple');
 var events = require('events');
-
+var JsonDB = require('node-json-db');
 
 // include routes
 var auth = require('./routes/auth');
 var public = require('./routes/public');
+var media = require('./routes/media');
+var jobs = require('./routes/jobs');
+var log = require('./routes/log');
+
 var moment = require('moment');
 
 // include own functions
@@ -20,15 +24,19 @@ var dbconnection = require('./functions/connectMysql.js')
 var config = require('./config.json');
 var logger = require('./functions/logger');
 logger.debugLevel = 'info';
+
 // formdata parser
 var multer = require('multer');
 var upload = multer();
 
-
 var app = express();
+
+global.DB_Jobs = new JsonDB("jobs", true, true);
+global.DB_Logs = new JsonDB("logs", true, true);
 
 global.isRunningTranscoding = false;
 
+/*
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -46,22 +54,30 @@ app.use(function (req, res, next) {
 
     // Pass to next layer of middleware
     next();
-});
-//app.use(logger('dev'));
+ });*/
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 console.log('packages loaded ...');
 
-
+app.all('/public/*', upload.any());
 app.all('/auth/*', upload.any());
+app.all('/media/*', upload.any());
+app.all('/jobs/*', upload.any());
 app.all('/auth/*', jwtauth);
+app.all('/jobs/*', jwtauth);
+
 
 
 app.use('/public', public);
 app.use('/auth', auth);
+app.use('/media', media);
+app.use('/jobs', jobs);
+app.use('/log', log);
+
 
 console.log('routes are started.');
 
