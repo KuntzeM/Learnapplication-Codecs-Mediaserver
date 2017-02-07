@@ -15,7 +15,7 @@ router.post('/startTranscoding', function (req, res, next) {
         return res.json({success: true, message: 'ffmpeg is current running!'});
     } else {
         global.isRunningTranscoding = true;
-        req.app.get('transcodeEvent').emit('prepareTranscoding', connection);
+        req.app.get('transcodeEvent').emit('prepareTranscoding');
         logger.log('info', 'ffmpeg is started!');
         return res.json({success: true, message: 'ffmpeg is started!'});
     }

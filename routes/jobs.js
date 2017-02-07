@@ -21,23 +21,38 @@ router.get('/get', function (req, res, next) {
 
 router.post('/post', function (req, res, next) {
 
-
-    var i = 0;
-    while (req.body[i] != undefined) {
+    if (req.body.name != undefined) {
         var job = {
-            media_type: req.body[i].media_type,
-            name: req.body[i].name,
-            codec: req.body[i].codec,
-            bitrate: req.body[i].bitrate,
-            optional: req.body[i].optional,
-            output: req.body[i].output,
+            media_type: req.body.media_type,
+            name: req.body.name,
+            codec: req.body.codec,
+            bitrate: req.body.bitrate,
+            optional: req.body.optional,
+            output: req.body.output,
+            convert: req.body.convert,
             progress: 0
         };
         DB_Jobs.push('/job[]', job, true);
-        i++;
+    } else {
+
+        var i = 0;
+        while (req.body[i] != undefined) {
+            var job = {
+                media_type: req.body[i].media_type,
+                name: req.body[i].name,
+                codec: req.body[i].codec,
+                bitrate: req.body[i].bitrate,
+                optional: req.body[i].optional,
+                output: req.body[i].output,
+                convert: req.body[i].convert,
+                progress: 0
+            };
+            DB_Jobs.push('/job[]', job, true);
+            i++;
+        }
     }
-    //DB_Jobs.save();
-    //DB_Jobs.reload();
+
+    req.app.get('transcodeEvent').emit('prepareTranscoding');
 
     res.sendStatus(200);
 });
