@@ -58,11 +58,13 @@ module.exports = {
                         }).on('end', function (stdout, stderr) {
                             logger.log('info', 'Transcoding succeed! (second coding to h264) input: ' + data.output + ' / output: ' + data.output + '.mp4');
                             DB_Jobs.delete('/job[0]');
+                            isRunningTranscoding = false;
                             transcodeEvent.emit('prepareTranscoding');
 
                         }).run();
                 } else {
                     DB_Jobs.delete('/job[0]');
+                    isRunningTranscoding = false;
                     transcodeEvent.emit('prepareTranscoding');
                 }
 
@@ -70,7 +72,7 @@ module.exports = {
             }).run();
 
     },
-    startImageTranscoding: function (connection, codec) {
+    startImageTranscoding: function (data) {
         var transcodeEvent = this;
 
 
@@ -108,10 +110,14 @@ module.exports = {
                         } else {
                             DB_Jobs.delete('/job[0]');
                             logger.log('info', 'image transcoding was success!  input: ' + data.output + ' / output: ' + data.output + '.png');
+                            isRunningTranscoding = false;
+                            transcodeEvent.emit('prepareTranscoding');
                         }
                     });
                 } else {
                     DB_Jobs.delete('/job[0]');
+                    isRunningTranscoding = false;
+                    transcodeEvent.emit('prepareTranscoding');
                 }
 
 
@@ -122,22 +128,25 @@ module.exports = {
     prepareTranscoding: function () {
         var transcodeEvent = this;
 
-        try {
-            var data = DB_Jobs.getData('/job[0]');
+        if (!isRunningTranscoding) {
+            logger.log('info', 'transcoding is current running!');
 
-            if (data.media_type == 'video') {
-                transcodeEvent.emit('startVideoTranscoding', data);
-            } else {
-                transcodeEvent.emit('startImageTranscoding', data);
+            try {
+                var data = DB_Jobs.getData('/job[0]');
+                isRunningTranscoding = true;
+                if (data.media_type == 'video') {
+                    transcodeEvent.emit('startVideoTranscoding', data);
+                } else {
+                    transcodeEvent.emit('startImageTranscoding', data);
+                }
+            } catch (error) {
+                logger.log('info', 'No jobs are in the queue. Transcoding process is stopping!');
+                isRunningTranscoding = false;
             }
-        } catch (error) {
-            logger.log('info', 'No jobs are in the queue. Transcoding process is stopping!');
-            global.isRunningTranscoding = false;
         }
+    },
 
-
-
-    }
+    isRunningTranscoding: false
 };
 
 

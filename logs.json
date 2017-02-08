@@ -1,3 +1,649 @@
 {
-  "log": []
+    "log": [
+        {
+            "level": "info",
+            "message": "The file is saved! name: 2_0_63dbc6915f8ea223da2762630b111c24.MOV",
+            "created_at": "2017-02-07 15:57:34"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 15:57:40"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 15:57:41"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 15:57:41"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 15:57:42"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 15:57:43"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:02:31"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:02:42"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:03:01"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 16:03:04"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_1_1744b4a760f2b2ee88483b3ca2270164.mp4",
+            "created_at": "2017-02-07 16:03:10"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:03:21"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:03:29"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 1000k storage/video/2_2_204069fb6e0193f94f1157e2a5bd28ba.mp4",
+            "created_at": "2017-02-07 16:03:29"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_2_204069fb6e0193f94f1157e2a5bd28ba.mp4",
+            "created_at": "2017-02-07 16:03:34"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:03:34"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 500k storage/video/2_3_f2c5e46709b7936503aabded0e590db6.mp4",
+            "created_at": "2017-02-07 16:03:34"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_3_f2c5e46709b7936503aabded0e590db6.mp4",
+            "created_at": "2017-02-07 16:03:38"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:03:38"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 250k storage/video/2_4_92e7fa3ec76145fcaef2ec4862a4cd39.mp4",
+            "created_at": "2017-02-07 16:03:38"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_4_92e7fa3ec76145fcaef2ec4862a4cd39.mp4",
+            "created_at": "2017-02-07 16:03:43"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:03:43"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libvpx -b:v 2000k storage/video/2_5_a0e055cb2b98033f87eb403c10c2cdc7.webm",
+            "created_at": "2017-02-07 16:03:43"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:04:30"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libvpx -b:v 2000k storage/video/2_5_a0e055cb2b98033f87eb403c10c2cdc7.webm",
+            "created_at": "2017-02-07 16:04:32"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:05:26"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 2000k storage/video/2_1_537dfb443c594a679bd0cb3fab286fff.mp4",
+            "created_at": "2017-02-07 16:05:36"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_1_537dfb443c594a679bd0cb3fab286fff.mp4",
+            "created_at": "2017-02-07 16:05:42"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:05:53"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 1000k storage/video/2_2_acc8317a95ce66746fdd03e1f7e225fd.mp4",
+            "created_at": "2017-02-07 16:05:56"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_2_acc8317a95ce66746fdd03e1f7e225fd.mp4",
+            "created_at": "2017-02-07 16:06:01"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:06:07"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec libx264 -b:v 500k storage/video/2_3_8389001b612c3fd700faff98acabdd4e.mp4",
+            "created_at": "2017-02-07 16:06:09"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_3_8389001b612c3fd700faff98acabdd4e.mp4",
+            "created_at": "2017-02-07 16:06:13"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:06:22"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:06:22"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:06:30"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_63dbc6915f8ea223da2762630b111c24.MOV -y -an -vcodec mpeg2video -b:v 2000k storage/video/2_13_e7ac1cfbb4a2c996439b02e282534df9.mp4",
+            "created_at": "2017-02-07 16:06:31"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_63dbc6915f8ea223da2762630b111c24.MOV / output: 2_13_e7ac1cfbb4a2c996439b02e282534df9.mp4",
+            "created_at": "2017-02-07 16:06:33"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_13_e7ac1cfbb4a2c996439b02e282534df9.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/2_13_e7ac1cfbb4a2c996439b02e282534df9.mp4.mp4",
+            "created_at": "2017-02-07 16:06:33"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 2_13_e7ac1cfbb4a2c996439b02e282534df9.mp4 / output: 2_13_e7ac1cfbb4a2c996439b02e282534df9.mp4.mp4",
+            "created_at": "2017-02-07 16:06:44"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:06:54"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:06:54"
+        },
+        {
+            "level": "info",
+            "message": "The file is saved! name: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg",
+            "created_at": "2017-02-07 16:07:02"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:07:53"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:07:53"
+        },
+        {
+            "level": "info",
+            "message": "ffmpeg is current running!",
+            "created_at": "2017-02-07 16:08:28"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:09:19"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:09:25"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_cc1d0119da6c24a64abddf2c1a3dd114.jpg",
+            "created_at": "2017-02-07 16:10:15"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:01"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:06"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_18_d3f5a308071235d9542f4ba53a3f4530.jpg",
+            "created_at": "2017-02-07 16:11:06"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:06"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_19_c1e05ce545bf5d5f1af7d414a99a64a4.jpg",
+            "created_at": "2017-02-07 16:11:07"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:07"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_20_802b5163a35fc84bd9edbca1d21f1387.jpg",
+            "created_at": "2017-02-07 16:11:08"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:08"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_21_20f9e89474435d7eb8d8c5f550ab8342.png",
+            "created_at": "2017-02-07 16:11:10"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:10"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_22_652e54f76b5a645a4508a52e2511e3c1.jp2",
+            "created_at": "2017-02-07 16:11:16"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_22_652e54f76b5a645a4508a52e2511e3c1.jp2 / output: 3_22_652e54f76b5a645a4508a52e2511e3c1.jp2.png",
+            "created_at": "2017-02-07 16:11:27"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:27"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_23_f4dfb00d5971937dc97b7a3c6a9f8ea4.jp2",
+            "created_at": "2017-02-07 16:11:34"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_23_f4dfb00d5971937dc97b7a3c6a9f8ea4.jp2 / output: 3_23_f4dfb00d5971937dc97b7a3c6a9f8ea4.jp2.png",
+            "created_at": "2017-02-07 16:11:43"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:43"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:11:54"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_24_7ae8ca6dd4fa32533b3d6c6ecaa68826.jp2",
+            "created_at": "2017-02-07 16:12:00"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_24_7ae8ca6dd4fa32533b3d6c6ecaa68826.jp2 / output: 3_24_7ae8ca6dd4fa32533b3d6c6ecaa68826.jp2.png",
+            "created_at": "2017-02-07 16:12:04"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:04"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_32db8c5641f83ab4292b297485b09009.jpg",
+            "created_at": "2017-02-07 16:12:04"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:04"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_18_c877159fb44eaff93828c63d7fd2bb99.jpg",
+            "created_at": "2017-02-07 16:12:05"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:05"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_19_d928deb07d917e7dadd5a7b47b760f3c.jpg",
+            "created_at": "2017-02-07 16:12:06"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:06"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_20_154027c69838201b3b130b365d27d011.jpg",
+            "created_at": "2017-02-07 16:12:07"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:07"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_21_30474cbb03c1645b24bab5208a3d3107.png",
+            "created_at": "2017-02-07 16:12:08"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:08"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_22_d5771f543cdd9e0cf639a5ac39f9a929.jp2",
+            "created_at": "2017-02-07 16:12:15"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_22_d5771f543cdd9e0cf639a5ac39f9a929.jp2 / output: 3_22_d5771f543cdd9e0cf639a5ac39f9a929.jp2.png",
+            "created_at": "2017-02-07 16:12:26"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:26"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_23_5b1bf6728e15dfff331b6cab9a5790e4.jp2",
+            "created_at": "2017-02-07 16:12:33"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_23_5b1bf6728e15dfff331b6cab9a5790e4.jp2 / output: 3_23_5b1bf6728e15dfff331b6cab9a5790e4.jp2.png",
+            "created_at": "2017-02-07 16:12:43"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:43"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_24_84a2658467f77b8cdd3d40dd139ea083.jp2",
+            "created_at": "2017-02-07 16:12:49"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_24_84a2658467f77b8cdd3d40dd139ea083.jp2 / output: 3_24_84a2658467f77b8cdd3d40dd139ea083.jp2.png",
+            "created_at": "2017-02-07 16:12:52"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:52"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_d3c21df53d12e22f45905dd6e5f5cac0.jpg",
+            "created_at": "2017-02-07 16:12:53"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:53"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_0cdeea383048dda1ffc858fff7103c31.jpg",
+            "created_at": "2017-02-07 16:12:54"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:54"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_18_572bf47053dce00dffca4419bd09a987.jpg",
+            "created_at": "2017-02-07 16:12:55"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:55"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_19_18337646987c3073e4d14bb697c5c49d.jpg",
+            "created_at": "2017-02-07 16:12:56"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:56"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_20_fe5d85c171c3ce2307dabd0ce58abe04.jpg",
+            "created_at": "2017-02-07 16:12:56"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:56"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_21_a3348ca94bf1fa968daa61508ca94701.png",
+            "created_at": "2017-02-07 16:12:58"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:12:58"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_22_77caceccbb3235b9e8f212e668fdbdd8.jp2",
+            "created_at": "2017-02-07 16:13:04"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_22_77caceccbb3235b9e8f212e668fdbdd8.jp2 / output: 3_22_77caceccbb3235b9e8f212e668fdbdd8.jp2.png",
+            "created_at": "2017-02-07 16:13:16"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:13:16"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_23_d3226521048662956bdbc45587ec2dd3.jp2",
+            "created_at": "2017-02-07 16:13:22"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_23_d3226521048662956bdbc45587ec2dd3.jp2 / output: 3_23_d3226521048662956bdbc45587ec2dd3.jp2.png",
+            "created_at": "2017-02-07 16:13:32"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:13:32"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_24_0d77837c9eeb7f37c8cd609b6b2ee789.jp2",
+            "created_at": "2017-02-07 16:13:38"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_24_0d77837c9eeb7f37c8cd609b6b2ee789.jp2 / output: 3_24_0d77837c9eeb7f37c8cd609b6b2ee789.jp2.png",
+            "created_at": "2017-02-07 16:13:42"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:13:42"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:13:42"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:25:36"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_20_2b8be0574fa5b6a834424ac10fd21abb.jpg",
+            "created_at": "2017-02-07 16:25:37"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:25:37"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:25:37"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:27:13"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_02e5fbbe79ade0e2972d6066d3be38aa.jpg",
+            "created_at": "2017-02-07 16:27:14"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:27:14"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:27:14"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:27:46"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_02e5fbbe79ade0e2972d6066d3be38aa.jpg",
+            "created_at": "2017-02-07 16:27:47"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:27:47"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:27:47"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:27:53"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg / output: 3_17_02e5fbbe79ade0e2972d6066d3be38aa.jpg",
+            "created_at": "2017-02-07 16:27:54"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-07 16:27:54"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-07 16:27:54"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-07 16:40:06"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-07 21:50:43"
+        }
+    ]
 }
