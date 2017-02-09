@@ -67,9 +67,6 @@ transcodeEvent.on('prepareTranscoding', transcoding.prepareTranscoding);
 
 /**
  *   error handler
- *   change the environment in the config.json
- *   development: use a show the error with complete stacktrace in the console
- *   production: show only the error message in the console
  */
 
 app.use(function (err, req, res, next) {
