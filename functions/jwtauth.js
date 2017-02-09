@@ -20,22 +20,21 @@ module.exports = function(req, res, next) {
                 if (req.decoded.token == req.app.get('jwtTokenSecret')) {
                     next();
                 } else {
-                    logger.log('warn', 'Failed to authenticate token.');
-                    return res.status(403).send({success: false, message: 'Failed to authenticate token.'});
+                    var err = new Error('Failed to authenticate token.');
+                    err.statusCode = 401;
+                    next(err);
                 }
             } catch (err) {
-                logger.log('warn', 'Failed to authenticate token.');
-                return res.status(403).send({success: false, message: 'Failed to authenticate token.'});
+                var err = new Error('Failed to authenticate token.');
+                err.statusCode = 401;
+                next(err);
             }
 
 
         } else {
-            logger.log('warn', 'No token provided.');
-            return res.status(403).send({
-                success: false,
-                message: 'No token provided.'
-            });
-
+            var err = new Error('No token provided.');
+            err.statusCode = 403;
+            next(err);
         }
     }
 };

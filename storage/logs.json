@@ -631,6 +631,281 @@
       "level": "error",
       "message": "dfsd",
       "created_at": "2017-02-09 21:55:51"
+    },
+    {
+      "level": "warn",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:08:30"
+    },
+    {
+      "level": "error",
+      "message": "{}",
+      "created_at": "2017-02-09 22:08:30"
+    },
+    {
+      "level": "warn",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:08:48"
+    },
+    {
+      "level": "error",
+      "message": "{}",
+      "created_at": "2017-02-09 22:11:46"
+    },
+    {
+      "level": "warn",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:11:49"
+    },
+    {
+      "level": "error",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:11:49"
+    },
+    {
+      "level": "error",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:12:47"
+    },
+    {
+      "level": "error",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:13:06"
+    },
+    {
+      "level": "error",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:13:12"
+    },
+    {
+      "level": "error",
+      "message": "No token provided.",
+      "created_at": "2017-02-09 22:14:24"
+    },
+    {
+      "level": "warn",
+      "message": "image/3_0_6c76f38ea1cb06c824b1605ff45r5b16d3e.jpg don't exist!",
+      "created_at": "2017-02-09 22:17:41"
+    },
+    {
+      "level": "warn",
+      "message": "image/3_0_6c76f38ea1cb06c824b1605ff45r5b16d3e.jpg don't exist!",
+      "created_at": "2017-02-09 22:17:58"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:10"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_17_85e3dab6c37c9ec43412b27530c8ee70.jpg",
+      "created_at": "2017-02-09 22:21:11"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:11"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_18_b53f58138a65e0313fdd233a99faeef1.jpg",
+      "created_at": "2017-02-09 22:21:12"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:12"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_19_777273f334d4fcced8893bd91e46fd08.jpg",
+      "created_at": "2017-02-09 22:21:12"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:12"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_20_1876636c4e610e4cebb44ce6c1f9813e.jpg",
+      "created_at": "2017-02-09 22:21:13"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:13"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_21_6a2b6bf1d5af7fc9016ae147a44903f7.png",
+      "created_at": "2017-02-09 22:21:15"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:15"
+    },
+    {
+      "level": "info",
+      "message": "file deleted: storage/image/3_0_6c76f38ea1cb06c824b1605ff5b16d3e.jpg",
+      "created_at": "2017-02-09 22:21:18"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_22_0d6597d929e6201b1ee738479bad8998.jp2",
+      "created_at": "2017-02-09 22:21:21"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_22_0d6597d929e6201b1ee738479bad8998.jp2 / output: 7_22_0d6597d929e6201b1ee738479bad8998.jp2.png",
+      "created_at": "2017-02-09 22:21:33"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:33"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_23_0e6809fc4175d74d93b7425c85c41563.jp2",
+      "created_at": "2017-02-09 22:21:39"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_23_0e6809fc4175d74d93b7425c85c41563.jp2 / output: 7_23_0e6809fc4175d74d93b7425c85c41563.jp2.png",
+      "created_at": "2017-02-09 22:21:49"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:49"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_24_11ab7c3bb3ca34baf007a7f4a18f5c12.jp2",
+      "created_at": "2017-02-09 22:21:55"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_24_11ab7c3bb3ca34baf007a7f4a18f5c12.jp2 / output: 7_24_11ab7c3bb3ca34baf007a7f4a18f5c12.jp2.png",
+      "created_at": "2017-02-09 22:21:59"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:21:59"
+    },
+    {
+      "level": "info",
+      "message": "No jobs are in the queue. Transcoding process is stopping!",
+      "created_at": "2017-02-09 22:21:59"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:07"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_17_85e3dab6c37c9ec43412b27530c8ee70.jpg",
+      "created_at": "2017-02-09 22:25:08"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:08"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_18_b53f58138a65e0313fdd233a99faeef1.jpg",
+      "created_at": "2017-02-09 22:25:09"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:09"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_19_777273f334d4fcced8893bd91e46fd08.jpg",
+      "created_at": "2017-02-09 22:25:10"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:10"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_20_1876636c4e610e4cebb44ce6c1f9813e.jpg",
+      "created_at": "2017-02-09 22:25:10"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:10"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_21_6a2b6bf1d5af7fc9016ae147a44903f7.png",
+      "created_at": "2017-02-09 22:25:12"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:12"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_22_0d6597d929e6201b1ee738479bad8998.jp2",
+      "created_at": "2017-02-09 22:25:18"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_22_0d6597d929e6201b1ee738479bad8998.jp2 / output: 7_22_0d6597d929e6201b1ee738479bad8998.jp2.png",
+      "created_at": "2017-02-09 22:25:30"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:30"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_23_0e6809fc4175d74d93b7425c85c41563.jp2",
+      "created_at": "2017-02-09 22:25:36"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_23_0e6809fc4175d74d93b7425c85c41563.jp2 / output: 7_23_0e6809fc4175d74d93b7425c85c41563.jp2.png",
+      "created_at": "2017-02-09 22:25:46"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:46"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_0_029ab4d5e005a3633751fdeed8cd33d7.jpg / output: 7_24_11ab7c3bb3ca34baf007a7f4a18f5c12.jp2",
+      "created_at": "2017-02-09 22:25:53"
+    },
+    {
+      "level": "info",
+      "message": "image transcoding was success!  input: 7_24_11ab7c3bb3ca34baf007a7f4a18f5c12.jp2 / output: 7_24_11ab7c3bb3ca34baf007a7f4a18f5c12.jp2.png",
+      "created_at": "2017-02-09 22:25:56"
+    },
+    {
+      "level": "info",
+      "message": "transcoding is current running!",
+      "created_at": "2017-02-09 22:25:56"
+    },
+    {
+      "level": "info",
+      "message": "No jobs are in the queue. Transcoding process is stopping!",
+      "created_at": "2017-02-09 22:25:56"
     }
   ]
 }

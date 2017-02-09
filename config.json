@@ -4,6 +4,5 @@
   },
   "storage": {
     "path": "storage"
-  },
-  "environment": "development"
+  }
 }

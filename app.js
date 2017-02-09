@@ -71,18 +71,18 @@ transcodeEvent.on('prepareTranscoding', transcoding.prepareTranscoding);
  *   development: use a show the error with complete stacktrace in the console
  *   production: show only the error message in the console
  */
-if (config.environment == "production") {
-    app.use(function (err, req, res, next) {
-        res.sendStatus(500);
-        logger.log('error', err);
-    });
-} else {
-    app.use(function (err, req, res, next) {
-        res.sendStatus(500);
-        logger.log('error', err);
-        console.trace(err);
-    });
-}
+
+app.use(function (err, req, res, next) {
+    res.sendStatus(err.statusCode || 500);
+
+    if (err.status == 'warn') {
+        logger.log('warn', err.message || err);
+    } else {
+        logger.log('error', err.message || err);
+    }
+
+});
+
 
 
 module.exports = app;

@@ -1,7 +1,5 @@
-var mysql = require('mysql');
 var config = require('./../config.json');
 var express = require('express');
-var app = express();
 var fs = require('fs');
 var imMagick = require('imagemagick');
 var ffmpeg = require('fluent-ffmpeg');
@@ -30,8 +28,10 @@ module.exports = {
                 }
 
 
-            }).on('error', function (err, stdout, stderr) {
-                logger.log('error', 'Cannot process video transcoding: ' + err.message);
+            }).on('error', function (error, stdout, stderr) {
+                var err = new Error('Cannot process video transcoding: ' + error.message);
+                err.statusCode = 500;
+                next(err);
             }).on('end', function (stdout, stderr) {
                 logger.log('info', 'Transcoding succeed! input: ' + data.name + ' / output: ' + data.output);
 
@@ -53,8 +53,10 @@ module.exports = {
                                 DB_Jobs.push('/job[0]/progress', progress.percent);
                             }
 
-                        }).on('error', function (err, stdout, stderr) {
-                            logger.log('error', 'Cannot process video transcoding (second coding to h264): ' + err.message);
+                        }).on('error', function (error, stdout, stderr) {
+                            var err = new Error('Cannot process video transcoding (second coding to h264): ' + error.message);
+                            err.statusCode = 500;
+                            next(err);
                         }).on('end', function (stdout, stderr) {
                             logger.log('info', 'Transcoding succeed! (second coding to h264) input: ' + data.output + ' / output: ' + data.output + '.mp4');
                             DB_Jobs.delete('/job[0]');
@@ -85,9 +87,11 @@ module.exports = {
         /*
          * transcode image
          */
-        imMagick.convert(options, function (err, stdout) {
-            if (err) {
-                logger.log('error', 'imagemagick failure: ' + err.message);
+        imMagick.convert(options, function (error, stdout) {
+            if (error) {
+                var err = new Error('imagemagick failure: ' + error.message);
+                err.statusCode = 500;
+                next(err);
             } else {
 
                 logger.log('info', 'image transcoding was success!  input: ' + data.name + ' / output: ' + data.output);
@@ -104,9 +108,11 @@ module.exports = {
                 if (data.convert == "1") {
 
                     var options = ['storage/' + data.media_type + '/' + data.output, 'storage/' + data.media_type + '/' + data.output + '.png'];
-                    imMagick.convert(options, function (err, stdout) {
-                        if (err) {
-                            logger.log('error', 'imagemagick failure: ' + error.message);
+                    imMagick.convert(options, function (error, stdout) {
+                        if (error) {
+                            var err = new Error('imagemagick failure: ' + error.message);
+                            err.statusCode = 500;
+                            next(err);
                         } else {
                             DB_Jobs.delete('/job[0]');
                             logger.log('info', 'image transcoding was success!  input: ' + data.output + ' / output: ' + data.output + '.png');

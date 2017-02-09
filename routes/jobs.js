@@ -2,16 +2,11 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var jwt = require('jwt-simple');
-fs = require('fs');
-path = require('path');
+var fs = require('fs');
+var path = require('path');
 var config = require('./../config.json');
-var upload = require('jquery-file-upload-middleware');
-
-var imMagick = require('imagemagick');
-var ffmpeg = require('fluent-ffmpeg');
 var logger = require('./../functions/logger');
 var mime = require('mime');
-var jwtauth = require('./../functions/jwtauth.js');
 
 
 router.post('/startTranscoding', function (req, res, next) {
