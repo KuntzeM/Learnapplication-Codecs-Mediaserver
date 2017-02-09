@@ -644,6 +644,1146 @@
             "level": "warn",
             "message": "No token provided.",
             "created_at": "2017-02-07 21:50:43"
+        },
+        {
+            "level": "info",
+            "message": "The file is saved! name: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg",
+            "created_at": "2017-02-08 10:37:12"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:19"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_17_762d579cb1e60ebcc38df2cdb502c64e.jpg",
+            "created_at": "2017-02-08 10:37:19"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:19"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_18_6d99907360c947301b24dc2547cade79.jpg",
+            "created_at": "2017-02-08 10:37:19"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:19"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_19_ffb3fe2901a359cc89b682d115a0fdaf.jpg",
+            "created_at": "2017-02-08 10:37:20"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:20"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_20_1ee98ae1949461ee883e36230796dff7.jpg",
+            "created_at": "2017-02-08 10:37:20"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:20"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_21_105fb5f7079b255775d121a7cd2079fd.png",
+            "created_at": "2017-02-08 10:37:20"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:20"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_22_e5a5c9f8049a94fede22a82fa5f692dc.jp2",
+            "created_at": "2017-02-08 10:37:21"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_22_e5a5c9f8049a94fede22a82fa5f692dc.jp2 / output: 3_22_e5a5c9f8049a94fede22a82fa5f692dc.jp2.png",
+            "created_at": "2017-02-08 10:37:22"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:22"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_23_4d206919314e7866ba1ec58b1293c56d.jp2",
+            "created_at": "2017-02-08 10:37:23"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_23_4d206919314e7866ba1ec58b1293c56d.jp2 / output: 3_23_4d206919314e7866ba1ec58b1293c56d.jp2.png",
+            "created_at": "2017-02-08 10:37:24"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:24"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_0_780585757568c9d51e40a0f5b84ba1dc.jpg / output: 3_24_c9257668c75cf998da5a3f908b279070.jp2",
+            "created_at": "2017-02-08 10:37:25"
+        },
+        {
+            "level": "info",
+            "message": "image transcoding was success!  input: 3_24_c9257668c75cf998da5a3f908b279070.jp2 / output: 3_24_c9257668c75cf998da5a3f908b279070.jp2.png",
+            "created_at": "2017-02-08 10:37:25"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:37:25"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-08 10:37:25"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:50:48"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_319ab5e8eb8fc3985fa924eae1a5b068.MP4 -y -an -vcodec mpeg2video -b:v 250k storage/video/2_16_84b66cb2b5051756eef48559c5c327b8.mp4",
+            "created_at": "2017-02-08 10:50:48"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_319ab5e8eb8fc3985fa924eae1a5b068.MP4 / output: 2_16_84b66cb2b5051756eef48559c5c327b8.mp4",
+            "created_at": "2017-02-08 10:50:50"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_16_84b66cb2b5051756eef48559c5c327b8.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/2_16_84b66cb2b5051756eef48559c5c327b8.mp4.mp4",
+            "created_at": "2017-02-08 10:50:50"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 2_16_84b66cb2b5051756eef48559c5c327b8.mp4 / output: 2_16_84b66cb2b5051756eef48559c5c327b8.mp4.mp4",
+            "created_at": "2017-02-08 10:50:54"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:50:54"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_0_319ab5e8eb8fc3985fa924eae1a5b068.MP4 -y -an -vcodec mpeg2video -b:v 500k storage/video/2_15_0c77ceae1059d8e9adcbf35fce008a76.mp4",
+            "created_at": "2017-02-08 10:50:54"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 2_0_319ab5e8eb8fc3985fa924eae1a5b068.MP4 / output: 2_15_0c77ceae1059d8e9adcbf35fce008a76.mp4",
+            "created_at": "2017-02-08 10:50:56"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/2_15_0c77ceae1059d8e9adcbf35fce008a76.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/2_15_0c77ceae1059d8e9adcbf35fce008a76.mp4.mp4",
+            "created_at": "2017-02-08 10:50:56"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 2_15_0c77ceae1059d8e9adcbf35fce008a76.mp4 / output: 2_15_0c77ceae1059d8e9adcbf35fce008a76.mp4.mp4",
+            "created_at": "2017-02-08 10:51:00"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-08 10:51:00"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-08 10:51:00"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:20:25"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 500k storage/video/1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:20:25"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:20:45"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:20:45"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-09 10:20:45"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:22:21"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 250k storage/video/1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:22:21"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:22:41"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:22:41"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 2000k storage/video/1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:22:41"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:23:42"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:23:42"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-09 10:23:42"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:25:28"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 2000k storage/video/1_1_b4f61c546ce588aa59b8a610f72c942c.mp4",
+            "created_at": "2017-02-09 10:25:28"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_1_b4f61c546ce588aa59b8a610f72c942c.mp4",
+            "created_at": "2017-02-09 10:25:37"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:25:37"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 1000k storage/video/1_2_e6a9382d5e99139838213fb795f805a0.mp4",
+            "created_at": "2017-02-09 10:25:37"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_2_e6a9382d5e99139838213fb795f805a0.mp4",
+            "created_at": "2017-02-09 10:25:44"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:25:44"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 500k storage/video/1_3_3fca6f4d2cbfdab7eee534fda96f125d.mp4",
+            "created_at": "2017-02-09 10:25:44"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_3_3fca6f4d2cbfdab7eee534fda96f125d.mp4",
+            "created_at": "2017-02-09 10:25:50"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:25:50"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 250k storage/video/1_4_34b66d482a2c6a3f1dae11b72c272991.mp4",
+            "created_at": "2017-02-09 10:25:50"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_4_34b66d482a2c6a3f1dae11b72c272991.mp4",
+            "created_at": "2017-02-09 10:25:55"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:25:55"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 2000k storage/video/1_5_f82dc6f8a278f59100a1951b02cbbfc3.webm",
+            "created_at": "2017-02-09 10:25:55"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_5_f82dc6f8a278f59100a1951b02cbbfc3.webm",
+            "created_at": "2017-02-09 10:26:34"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:26:34"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 1000k storage/video/1_6_5535e618bb8c52c147b2a0e5450045c2.webm",
+            "created_at": "2017-02-09 10:26:34"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_6_5535e618bb8c52c147b2a0e5450045c2.webm",
+            "created_at": "2017-02-09 10:26:56"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:26:56"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 500k storage/video/1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:26:56"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:27:15"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:27:15"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 250k storage/video/1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:27:15"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:27:34"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:27:34"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 2000k storage/video/1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:27:34"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:28:28"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:28:28"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 1000k storage/video/1_10_346fa5a344ca435a09e6ee0ca453dde3.webm",
+            "created_at": "2017-02-09 10:28:28"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_10_346fa5a344ca435a09e6ee0ca453dde3.webm",
+            "created_at": "2017-02-09 10:29:18"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:29:18"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 500k storage/video/1_11_c60ca349e0863f412b8aaaf434f0c6d6.webm",
+            "created_at": "2017-02-09 10:29:18"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_11_c60ca349e0863f412b8aaaf434f0c6d6.webm",
+            "created_at": "2017-02-09 10:30:02"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:30:02"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 250k storage/video/1_12_0be398f1f2361a57d20b32432ecb886a.webm",
+            "created_at": "2017-02-09 10:30:02"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_12_0be398f1f2361a57d20b32432ecb886a.webm",
+            "created_at": "2017-02-09 10:30:36"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:30:36"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 2000k storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4",
+            "created_at": "2017-02-09 10:30:36"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4",
+            "created_at": "2017-02-09 10:30:39"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4.mp4",
+            "created_at": "2017-02-09 10:30:39"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4 / output: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4.mp4",
+            "created_at": "2017-02-09 10:30:48"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:30:48"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 1000k storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4",
+            "created_at": "2017-02-09 10:30:48"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4",
+            "created_at": "2017-02-09 10:30:50"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4.mp4",
+            "created_at": "2017-02-09 10:30:50"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4 / output: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4.mp4",
+            "created_at": "2017-02-09 10:30:58"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:30:58"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 500k storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4",
+            "created_at": "2017-02-09 10:30:58"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4",
+            "created_at": "2017-02-09 10:31:00"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4.mp4",
+            "created_at": "2017-02-09 10:31:00"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4 / output: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4.mp4",
+            "created_at": "2017-02-09 10:31:10"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:31:10"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 250k storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4",
+            "created_at": "2017-02-09 10:31:10"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_16_1b097bb820b6731bb5c648968bd67537.mp4",
+            "created_at": "2017-02-09 10:31:14"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4.mp4",
+            "created_at": "2017-02-09 10:31:14"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_16_1b097bb820b6731bb5c648968bd67537.mp4 / output: 1_16_1b097bb820b6731bb5c648968bd67537.mp4.mp4",
+            "created_at": "2017-02-09 10:31:24"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:31:24"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-09 10:31:24"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:35:20"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 2000k storage/video/1_1_b4f61c546ce588aa59b8a610f72c942c.mp4",
+            "created_at": "2017-02-09 10:35:20"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_1_b4f61c546ce588aa59b8a610f72c942c.mp4",
+            "created_at": "2017-02-09 10:35:29"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:35:29"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 1000k storage/video/1_2_e6a9382d5e99139838213fb795f805a0.mp4",
+            "created_at": "2017-02-09 10:35:29"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_2_e6a9382d5e99139838213fb795f805a0.mp4",
+            "created_at": "2017-02-09 10:35:37"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:35:37"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 500k storage/video/1_3_3fca6f4d2cbfdab7eee534fda96f125d.mp4",
+            "created_at": "2017-02-09 10:35:37"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_3_3fca6f4d2cbfdab7eee534fda96f125d.mp4",
+            "created_at": "2017-02-09 10:35:43"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:35:43"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 250k storage/video/1_4_34b66d482a2c6a3f1dae11b72c272991.mp4",
+            "created_at": "2017-02-09 10:35:43"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_4_34b66d482a2c6a3f1dae11b72c272991.mp4",
+            "created_at": "2017-02-09 10:35:48"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:35:48"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 2000k storage/video/1_5_f82dc6f8a278f59100a1951b02cbbfc3.webm",
+            "created_at": "2017-02-09 10:35:48"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_5_f82dc6f8a278f59100a1951b02cbbfc3.webm",
+            "created_at": "2017-02-09 10:36:28"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:36:28"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 1000k storage/video/1_6_5535e618bb8c52c147b2a0e5450045c2.webm",
+            "created_at": "2017-02-09 10:36:28"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_6_5535e618bb8c52c147b2a0e5450045c2.webm",
+            "created_at": "2017-02-09 10:36:53"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:36:53"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 500k storage/video/1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:36:53"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:37:16"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:37:16"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 250k storage/video/1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:37:16"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:37:39"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:37:39"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 2000k storage/video/1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:37:39"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:38:43"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:38:43"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 1000k storage/video/1_10_346fa5a344ca435a09e6ee0ca453dde3.webm",
+            "created_at": "2017-02-09 10:38:43"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_10_346fa5a344ca435a09e6ee0ca453dde3.webm",
+            "created_at": "2017-02-09 10:39:30"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:39:30"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 500k storage/video/1_11_c60ca349e0863f412b8aaaf434f0c6d6.webm",
+            "created_at": "2017-02-09 10:39:30"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_11_c60ca349e0863f412b8aaaf434f0c6d6.webm",
+            "created_at": "2017-02-09 10:40:04"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:40:04"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 250k storage/video/1_12_0be398f1f2361a57d20b32432ecb886a.webm",
+            "created_at": "2017-02-09 10:40:04"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_12_0be398f1f2361a57d20b32432ecb886a.webm",
+            "created_at": "2017-02-09 10:40:35"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:40:35"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 2000k storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4",
+            "created_at": "2017-02-09 10:40:35"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4",
+            "created_at": "2017-02-09 10:40:37"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4.mp4",
+            "created_at": "2017-02-09 10:40:37"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4 / output: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4.mp4",
+            "created_at": "2017-02-09 10:40:44"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:40:44"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 1000k storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4",
+            "created_at": "2017-02-09 10:40:44"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4",
+            "created_at": "2017-02-09 10:40:46"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4.mp4",
+            "created_at": "2017-02-09 10:40:46"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4 / output: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4.mp4",
+            "created_at": "2017-02-09 10:40:52"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:40:52"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 500k storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4",
+            "created_at": "2017-02-09 10:40:52"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4",
+            "created_at": "2017-02-09 10:40:54"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4.mp4",
+            "created_at": "2017-02-09 10:40:54"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4 / output: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4.mp4",
+            "created_at": "2017-02-09 10:41:00"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:41:00"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 250k storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4",
+            "created_at": "2017-02-09 10:41:00"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_16_1b097bb820b6731bb5c648968bd67537.mp4",
+            "created_at": "2017-02-09 10:41:02"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4.mp4",
+            "created_at": "2017-02-09 10:41:02"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_16_1b097bb820b6731bb5c648968bd67537.mp4 / output: 1_16_1b097bb820b6731bb5c648968bd67537.mp4.mp4",
+            "created_at": "2017-02-09 10:41:08"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:41:08"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-09 10:41:08"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:44:19"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 2000k storage/video/1_1_b4f61c546ce588aa59b8a610f72c942c.mp4",
+            "created_at": "2017-02-09 10:44:19"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_1_b4f61c546ce588aa59b8a610f72c942c.mp4",
+            "created_at": "2017-02-09 10:44:28"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:44:28"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 1000k storage/video/1_2_e6a9382d5e99139838213fb795f805a0.mp4",
+            "created_at": "2017-02-09 10:44:28"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_2_e6a9382d5e99139838213fb795f805a0.mp4",
+            "created_at": "2017-02-09 10:44:35"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:44:35"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 500k storage/video/1_3_3fca6f4d2cbfdab7eee534fda96f125d.mp4",
+            "created_at": "2017-02-09 10:44:35"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_3_3fca6f4d2cbfdab7eee534fda96f125d.mp4",
+            "created_at": "2017-02-09 10:44:40"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:44:40"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libx264 -b:v 250k storage/video/1_4_34b66d482a2c6a3f1dae11b72c272991.mp4",
+            "created_at": "2017-02-09 10:44:40"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_4_34b66d482a2c6a3f1dae11b72c272991.mp4",
+            "created_at": "2017-02-09 10:44:46"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:44:46"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 2000k storage/video/1_5_f82dc6f8a278f59100a1951b02cbbfc3.webm",
+            "created_at": "2017-02-09 10:44:46"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_5_f82dc6f8a278f59100a1951b02cbbfc3.webm",
+            "created_at": "2017-02-09 10:45:20"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:45:20"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 1000k storage/video/1_6_5535e618bb8c52c147b2a0e5450045c2.webm",
+            "created_at": "2017-02-09 10:45:20"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_6_5535e618bb8c52c147b2a0e5450045c2.webm",
+            "created_at": "2017-02-09 10:45:44"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:45:44"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 500k storage/video/1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:45:44"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_7_0cd960413a8fa25c951b0066df52ce35.webm",
+            "created_at": "2017-02-09 10:46:07"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:46:07"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx -b:v 250k storage/video/1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:46:07"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_8_df4415b6f6c9cf3bf522355f12a1ba6a.webm",
+            "created_at": "2017-02-09 10:46:28"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:46:28"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 2000k storage/video/1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:46:28"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_9_3bb469201a3ad79f8a906558e2ca971b.webm",
+            "created_at": "2017-02-09 10:47:26"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:47:26"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 1000k storage/video/1_10_346fa5a344ca435a09e6ee0ca453dde3.webm",
+            "created_at": "2017-02-09 10:47:26"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_10_346fa5a344ca435a09e6ee0ca453dde3.webm",
+            "created_at": "2017-02-09 10:48:18"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:48:18"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 500k storage/video/1_11_c60ca349e0863f412b8aaaf434f0c6d6.webm",
+            "created_at": "2017-02-09 10:48:18"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_11_c60ca349e0863f412b8aaaf434f0c6d6.webm",
+            "created_at": "2017-02-09 10:48:57"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:48:57"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec libvpx-vp9 -b:v 250k storage/video/1_12_0be398f1f2361a57d20b32432ecb886a.webm",
+            "created_at": "2017-02-09 10:48:57"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_12_0be398f1f2361a57d20b32432ecb886a.webm",
+            "created_at": "2017-02-09 10:49:30"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:49:30"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 2000k storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4",
+            "created_at": "2017-02-09 10:49:30"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4",
+            "created_at": "2017-02-09 10:49:32"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4.mp4",
+            "created_at": "2017-02-09 10:49:32"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4 / output: 1_13_c95ccd1d751a7bb4b9d8697d0db9ca35.mp4.mp4",
+            "created_at": "2017-02-09 10:49:38"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:49:38"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 1000k storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4",
+            "created_at": "2017-02-09 10:49:38"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4",
+            "created_at": "2017-02-09 10:49:40"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_14_89c7d7eae34e6fb14eb45a062c413817.mp4.mp4",
+            "created_at": "2017-02-09 10:49:40"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4 / output: 1_14_89c7d7eae34e6fb14eb45a062c413817.mp4.mp4",
+            "created_at": "2017-02-09 10:49:48"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:49:48"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 500k storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4",
+            "created_at": "2017-02-09 10:49:48"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4",
+            "created_at": "2017-02-09 10:49:50"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4.mp4",
+            "created_at": "2017-02-09 10:49:50"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4 / output: 1_15_bd58bf51c2e4658ed7465bcf1cf5bee7.mp4.mp4",
+            "created_at": "2017-02-09 10:49:57"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:49:57"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 -y -an -vcodec mpeg2video -b:v 250k storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4",
+            "created_at": "2017-02-09 10:49:57"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! input: 1_0_decb5ed5c39f5e3eb2c6ee1350dca238.MP4 / output: 1_16_1b097bb820b6731bb5c648968bd67537.mp4",
+            "created_at": "2017-02-09 10:49:59"
+        },
+        {
+            "level": "info",
+            "message": "Spawned Ffmpeg with command: ffmpeg -strict -2 -i storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4 -y -an -vcodec libx264 -b:v 20000k storage/video/1_16_1b097bb820b6731bb5c648968bd67537.mp4.mp4",
+            "created_at": "2017-02-09 10:49:59"
+        },
+        {
+            "level": "info",
+            "message": "Transcoding succeed! (second coding to h264) input: 1_16_1b097bb820b6731bb5c648968bd67537.mp4 / output: 1_16_1b097bb820b6731bb5c648968bd67537.mp4.mp4",
+            "created_at": "2017-02-09 10:50:05"
+        },
+        {
+            "level": "info",
+            "message": "transcoding is current running!",
+            "created_at": "2017-02-09 10:50:05"
+        },
+        {
+            "level": "info",
+            "message": "No jobs are in the queue. Transcoding process is stopping!",
+            "created_at": "2017-02-09 10:50:05"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-09 14:16:19"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-09 14:16:32"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-09 14:20:58"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-09 14:21:59"
+        },
+        {
+            "level": "warn",
+            "message": "Failed to authenticate token.",
+            "created_at": "2017-02-09 14:22:48"
+        },
+        {
+            "level": "warn",
+            "message": "Failed to authenticate token.",
+            "created_at": "2017-02-09 14:22:50"
+        },
+        {
+            "level": "warn",
+            "message": "No token provided.",
+            "created_at": "2017-02-09 14:24:13"
         }
     ]
 }

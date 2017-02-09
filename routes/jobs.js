@@ -15,7 +15,11 @@ var jwtauth = require('./../functions/jwtauth.js');
 
 
 router.get('/get', function (req, res, next) {
-
+    try {
+        res.json({success: true, jobs: DB_Jobs.getData('/job')})
+    } catch (e) {
+        res.json({success: false, message: 'no jobs'})
+    }
 
 });
 

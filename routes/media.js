@@ -17,6 +17,12 @@ router.get('/get/:media_type/:name', function (req, res, next) {
     file = 'storage/' + req.params.media_type + '/' + req.params.name;
 
     if (fs.existsSync(file)) {
+        if (fs.existsSync(file + '.png')) {
+            file = file + '.png';
+        }
+        if (fs.existsSync(file + '.mp4')) {
+            file = file + '.mp4';
+        }
         type = mime.lookup(file);
         res.writeHead(200, {'Content-Type': type});
         res.end(fs.readFileSync(file), 'binary');
