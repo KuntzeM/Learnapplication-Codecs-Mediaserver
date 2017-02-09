@@ -14,8 +14,27 @@ var mime = require('mime');
 var jwtauth = require('./../functions/jwtauth.js');
 
 
+router.post('/startTranscoding', function (req, res, next) {
+
+    if (global.isRunningTranscoding) {
+        logger.log('info', 'ffmpeg is current running!');
+        return res.json({success: true, message: 'ffmpeg is current running!'});
+    } else {
+        req.app.get('transcodeEvent').emit('prepareTranscoding');
+        logger.log('info', 'ffmpeg is started!');
+        return res.json({success: true, message: 'ffmpeg is started!'});
+    }
+});
+
+
 router.get('/get', function (req, res, next) {
     try {
+        var jobs = DB_Jobs.getData('/job');
+
+        if (jobs.length == 0) {
+            throw new Exception('no jobs');
+        }
+
         res.json({success: true, jobs: DB_Jobs.getData('/job')})
     } catch (e) {
         res.json({success: false, message: 'no jobs'})

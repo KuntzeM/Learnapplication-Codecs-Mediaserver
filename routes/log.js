@@ -16,12 +16,25 @@ var jwtauth = require('./../functions/jwtauth.js');
 
 router.get('/get', function (req, res, next) {
 
-    res.json(DB_Logs.getData("log").log);
+    try {
+        var log = DB_Logs.getData("log").log;
+        if (log == undefined) {
+            throw new Exception('kein Log vorhanden!');
+        }
+        res.json(log);
+    } catch (e) {
+        res.sendStatus(404)
+    }
+
 });
 
 router.get('/delete', function (req, res, next) {
-    DB_Logs.delete("/")
+    DB_Logs.delete("/");
     res.sendStatus(200)
+});
+
+router.get('/status', function (req, res, next) {
+    res.json({success: true});
 });
 
 module.exports = router;

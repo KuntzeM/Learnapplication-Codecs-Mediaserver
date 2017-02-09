@@ -12,6 +12,9 @@ var ffmpeg = require('fluent-ffmpeg');
 var logger = require('./../functions/logger');
 var mime = require('mime');
 var jwtauth = require('./../functions/jwtauth.js');
+var multer = require('multer');
+var upload = multer();
+
 
 router.get('/get/:media_type/:name', function (req, res, next) {
     file = 'storage/' + req.params.media_type + '/' + req.params.name;
@@ -33,7 +36,7 @@ router.get('/get/:media_type/:name', function (req, res, next) {
 });
 
 
-router.post('/post', jwtauth, function (req, res, next) {
+router.post('/post', upload.any(), function (req, res, next) {
 
     if (!(req.body.media_type == 'image') && !(req.body.media_type == 'video')) {
         res.sendStatus(404);
