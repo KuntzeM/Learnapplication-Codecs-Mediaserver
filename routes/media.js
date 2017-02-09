@@ -6,7 +6,6 @@ fs = require('fs');
 path = require('path');
 var config = require('./../config.json');
 var upload = require('jquery-file-upload-middleware');
-var handleMedia = require('../functions/handleMedia');
 var imMagick = require('imagemagick');
 var ffmpeg = require('fluent-ffmpeg');
 var logger = require('./../functions/logger');

@@ -65,32 +65,24 @@ transcodeEvent.on('startImageTranscoding', transcoding.startImageTranscoding);
 transcodeEvent.on('prepareTranscoding', transcoding.prepareTranscoding);
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    console.log(err.message)
-  });
+/**
+ *   error handler
+ *   change the environment in the config.json
+ *   development: use a show the error with complete stacktrace in the console
+ *   production: show only the error message in the console
+ */
+if (config.environment == "production") {
+    app.use(function (err, req, res, next) {
+        res.sendStatus(500);
+        logger.log('error', err);
+    });
+} else {
+    app.use(function (err, req, res, next) {
+        res.sendStatus(500);
+        logger.log('error', err);
+        console.trace(err);
+    });
 }
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    console.log(err.message)
-});
 
 
 module.exports = app;

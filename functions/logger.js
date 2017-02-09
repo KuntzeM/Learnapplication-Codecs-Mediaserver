@@ -11,7 +11,12 @@ module.exports = {
             if (typeof message !== 'string') {
                 message = JSON.stringify(message);
             }
-            console.log(level + ': ' + message);
+            if (level == 'error') {
+                console.error(level + ': ' + message);
+            } else {
+                console.log(level + ': ' + message);
+            }
+
             time = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
             var log = {

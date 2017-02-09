@@ -1,17 +1,9 @@
 {
-  "mysql": {
-    "host": "localhost",
-    "user": "medienprojekt",
-    "pass": "NBjBGYqXGHeQcq77",
-    "database": "medienprojekt",
-    "prefix": "medienprojekt_"
-  },
   "api": {
     "key": 1234567890
   },
   "storage": {
     "path": "storage"
-  }
-
-
+  },
+  "environment": "development"
 }
