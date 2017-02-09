@@ -18,7 +18,7 @@ module.exports = {
             .output('storage/' + data.media_type + '/' + data.output)
             .videoCodec(data.codec).videoBitrate(data.bitrate)
             .inputOptions([
-                '-strict -2',
+                '-strict -2'
                 //data.optional
             ]).noAudio()
             .on('start', function (commandLine) {
@@ -87,7 +87,7 @@ module.exports = {
          */
         imMagick.convert(options, function (err, stdout) {
             if (err) {
-                logger.log('error', 'imagemagick failure: ' + error.message);
+                logger.log('error', 'imagemagick failure: ' + err.message);
             } else {
 
                 logger.log('info', 'image transcoding was success!  input: ' + data.name + ' / output: ' + data.output);
@@ -103,7 +103,7 @@ module.exports = {
                  */
                 if (data.convert == "1") {
 
-                    var options = ['storage/' + data.media_type + '/' + data.output, 'storage/' + data.media_type + '/' + data.output + '.png']
+                    var options = ['storage/' + data.media_type + '/' + data.output, 'storage/' + data.media_type + '/' + data.output + '.png'];
                     imMagick.convert(options, function (err, stdout) {
                         if (err) {
                             logger.log('error', 'imagemagick failure: ' + error.message);
