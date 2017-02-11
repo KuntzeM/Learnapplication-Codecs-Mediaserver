@@ -19,6 +19,8 @@ router.get('/get/:media_type/:name', function (req, res, next) {
     file = 'storage/' + req.params.media_type + '/' + req.params.name;
 
     if (fs.existsSync(file)) {
+        var stats = fs.statSync(file);
+        var fileSizeInBytes = parseInt(stats["size"]);
         if (fs.existsSync(file + '.png')) {
             file = file + '.png';
         }
@@ -26,8 +28,27 @@ router.get('/get/:media_type/:name', function (req, res, next) {
             file = file + '.mp4';
         }
         type = mime.lookup(file);
-        res.writeHead(200, {'Content-Type': type});
-        res.end(fs.readFileSync(file), 'binary');
+
+        if (req.params.media_type == "image" && req.headers.resize != "") {
+            imMagick.resize({
+                srcData: fs.readFileSync(file, 'binary'),
+                width: req.headers.resize
+            }, function (error, stdout, stderr) {
+                if (error) {
+                    var err = new Error(req.params.media_type + '/' + req.params.name + ' resize failed!');
+                    err.status = 'warn';
+                    err.statusCode = 404;
+                    next(err);
+                } else {
+                    res.writeHead(200, {'Content-Type': type, 'size': fileSizeInBytes});
+                    res.end(stdout, 'binary');
+                }
+            });
+
+        } else {
+            res.writeHead(200, {'Content-Type': type, 'size': fileSizeInBytes});
+            res.end(fs.readFileSync(file), 'binary');
+        }
     } else {
         var err = new Error(req.params.media_type + '/' + req.params.name + ' don\'t exist!');
         err.status = 'warn';
