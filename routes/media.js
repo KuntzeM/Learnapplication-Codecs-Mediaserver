@@ -67,7 +67,7 @@ router.post('/post', upload.any(), function (req, res, next) {
         err.statusCode = 404;
         next(err);
     } else {
-        fs.writeFile('storage/' + req.body.media_type + '/' + req.body.name, req.files[0].buffer, function (err) {
+        fs.writeFile('storage/' + req.body.media_type + '/' + req.body.name, req.files[0].buffer, function (error) {
             if (error) {
                 var err = new Error('write file failure: ' + error.message);
                 next(err);

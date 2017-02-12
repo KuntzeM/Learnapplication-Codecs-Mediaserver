@@ -1,6 +1,8 @@
 var mysql = require('mysql');
 var config = require('./../config.json');
 var app = require('../app');
+var JsonDB = require('node-json-db');
+
 
 module.exports = {
     debugLevel: 'info',
@@ -24,7 +26,12 @@ module.exports = {
                 'message': message,
                 'created_at': time
             };
-            DB_Logs.push('/log[]', log, true);
+            try {
+                DB_Logs.push('/log[]', log, true);
+            } catch (e) {
+                DB_Logs = new JsonDB("storage/logs", true, true);
+            }
+
         }
     }
 };

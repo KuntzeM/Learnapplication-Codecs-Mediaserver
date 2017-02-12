@@ -29,9 +29,7 @@ module.exports = {
 
 
             }).on('error', function (error, stdout, stderr) {
-                var err = new Error('Cannot process video transcoding: ' + error.message);
-                err.statusCode = 500;
-                next(err);
+                logger.log('error', 'Cannot process video transcoding: ' + error.message);
             }).on('end', function (stdout, stderr) {
                 logger.log('info', 'Transcoding succeed! input: ' + data.name + ' / output: ' + data.output);
 
@@ -54,9 +52,7 @@ module.exports = {
                             }
 
                         }).on('error', function (error, stdout, stderr) {
-                            var err = new Error('Cannot process video transcoding (second coding to h264): ' + error.message);
-                            err.statusCode = 500;
-                            next(err);
+                            logger.log('error', 'Cannot process video transcoding (second coding to h264): ' + error.message);
                         }).on('end', function (stdout, stderr) {
                             logger.log('info', 'Transcoding succeed! (second coding to h264) input: ' + data.output + ' / output: ' + data.output + '.mp4');
                             DB_Jobs.delete('/job[0]');
@@ -81,28 +77,25 @@ module.exports = {
         if (data.optional == "") {
             var options = ['storage/' + data.media_type + '/' + data.name, '-quality', data.bitrate, 'storage/' + data.media_type + '/' + data.output]
         } else {
-            var options = ['storage/' + data.media_type + '/' + data.name, '-quality', data.bitrate, data.optional, 'storage/' + data.media_type + '/' + data.output]
+            var s = data.optional.split(" ");
+            var options = new Array();
+            options.push('storage/' + data.media_type + '/' + data.name);
+            options.push('-quality');
+            options.push(data.bitrate);
+            options = options.concat(s);
+            options.push('storage/' + data.media_type + '/' + data.output);
         }
-
-        /*
+        console.log(options);
+        /**
          * transcode image
          */
         imMagick.convert(options, function (error, stdout) {
             if (error) {
-                var err = new Error('imagemagick failure: ' + error.message);
-                err.statusCode = 500;
-                next(err);
+                logger.log('error', 'imagemagick failure: ' + error.message);
             } else {
 
                 logger.log('info', 'image transcoding was success!  input: ' + data.name + ' / output: ' + data.output);
-                var stats = fs.statSync('storage/' + data.media_type + '/' + data.output);
-                var fileSizeInBytes = parseInt(stats["size"]);
-
                 /**
-                 * send informations to webserver
-                 */
-
-                /*
                  * if browser cannot show file, than image will be transcoded to png.
                  */
                 if (data.convert == "1") {
@@ -110,9 +103,7 @@ module.exports = {
                     var options = ['storage/' + data.media_type + '/' + data.output, 'storage/' + data.media_type + '/' + data.output + '.png'];
                     imMagick.convert(options, function (error, stdout) {
                         if (error) {
-                            var err = new Error('imagemagick failure: ' + error.message);
-                            err.statusCode = 500;
-                            next(err);
+                            logger.log('error', 'imagemagick failure: ' + error.message);
                         } else {
                             DB_Jobs.delete('/job[0]');
                             logger.log('info', 'image transcoding was success!  input: ' + data.output + ' / output: ' + data.output + '.png');
