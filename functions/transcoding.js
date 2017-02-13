@@ -85,7 +85,6 @@ module.exports = {
             options = options.concat(s);
             options.push('storage/' + data.media_type + '/' + data.output);
         }
-        console.log(options);
         /**
          * transcode image
          */

@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var config = require('./../config.json');
 var app = require('../app');
 var JsonDB = require('node-json-db');
-
+fs = require('fs');
 
 module.exports = {
     debugLevel: 'info',
@@ -29,7 +29,10 @@ module.exports = {
             try {
                 DB_Logs.push('/log[]', log, true);
             } catch (e) {
-                DB_Logs = new JsonDB("storage/logs", true, true);
+                fs.unlinkSync("storage/logs.json");
+                global.DB_Logs = new JsonDB("storage/logs", true, true);
+                DB_Logs.reload();
+                DB_Logs.push('/log[]', log, true);
             }
 
         }
