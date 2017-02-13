@@ -1,4 +1,5 @@
 .idea
 node_modules/*
 node_modules/.bin/*
-
+storage/jobs.json
+storage/logs.json
