@@ -99,13 +99,32 @@ router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, func
     var file1 = 'storage/' + req.params.media_type1 + '/' + req.params.name1;
     var file2 = 'storage/' + req.params.media_type2 + '/' + req.params.name2;
 
-    if (fs.existsSync(file2)) {
+    if (fs.existsSync(file2) && fs.existsSync(file1) && !computeMetric) {
+        computeMetric = true;
         var stats = fs.statSync(file2);
         var fileSizeInBytes = parseInt(stats["size"]);
 
+        var metrics = {
+            file1: req.params.name1,
+            file2: req.params.name2,
+            media_type: req.params.media_type1,
+            progress: 0
+        };
+        DB_Jobs.delete('/metrics');
+        DB_Jobs.push('/metrics', metrics, true);
+
         ffmpeg(file1).input(file2)
             .complexFilter(['ssim; [0:v][1:v]psnr'])
+            .inputOptions([
+                '-strict -2'
+            ]).noAudio()
             .output('storage/tmp.mp4')
+            .on('progress', function (progress) {
+                console.log('compute Metrics: ' + progress.percent + '%');
+                console.log(file1);
+                console.log(file2);
+                DB_Jobs.push('/metrics/progress', progress.percent);
+            })
             .on('error', function (error, stdout, stderr) {
                 var err = new Error('cannot compute ssim or psrn: ' + error.message);
                 err.statusCode = 404;
@@ -117,8 +136,9 @@ router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, func
 
                 regex = /PSNR[\s\S]* average:([0-9]*[.][0-9]*)/g;
                 psnr = regex.exec(stderr);
-
-                res.json({'SSIM': ssim[1], 'PSNR': psnr[1], 'size': fileSizeInBytes}, 200);
+                computeMetric = false;
+                DB_Jobs.delete('/metrics');
+                res.status(200).json({'SSIM': ssim[1], 'PSNR': psnr[1], 'size': fileSizeInBytes});
 
             }).run();
     }

@@ -31,6 +31,7 @@ var app = express();
 global.DB_Jobs = new JsonDB("storage/jobs", true, true);
 global.DB_Logs = new JsonDB("storage/logs", true, true);
 global.isRunningTranscoding = false;
+global.computeMetric = false;
 
 app.set('jwtTokenSecret', config.api.key);
 
