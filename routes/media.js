@@ -95,7 +95,7 @@ router.delete('/delete/:media_type/:name', jwtauth, function (req, res, next) {
 });
 
 router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, function (req, res, next) {
-    console.log('test');
+
     var file1 = 'storage/' + req.params.media_type1 + '/' + req.params.name1;
     var file2 = 'storage/' + req.params.media_type2 + '/' + req.params.name2;
 
