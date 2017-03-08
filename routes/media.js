@@ -93,4 +93,38 @@ router.delete('/delete/:media_type/:name', jwtauth, function (req, res, next) {
     }
 
 });
+
+router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, function (req, res, next) {
+    console.log('test');
+    var file1 = 'storage/' + req.params.media_type1 + '/' + req.params.name1;
+    var file2 = 'storage/' + req.params.media_type2 + '/' + req.params.name2;
+
+    if (fs.existsSync(file2)) {
+        var stats = fs.statSync(file2);
+        var fileSizeInBytes = parseInt(stats["size"]);
+
+        ffmpeg(file1).input(file2)
+            .complexFilter(['ssim; [0:v][1:v]psnr'])
+            .output('storage/tmp.mp4')
+            .on('error', function (error, stdout, stderr) {
+                var err = new Error('cannot compute ssim or psrn: ' + error.message);
+                err.statusCode = 404;
+                next(err);
+            })
+            .on('end', function (stdout, stderr) {
+                regex = /SSIM[\s\S]* All:([0-9]*[.][0-9]*)/g;
+                ssim = regex.exec(stderr);
+
+                regex = /PSNR[\s\S]* average:([0-9]*[.][0-9]*)/g;
+                psnr = regex.exec(stderr);
+
+                res.json({'SSIM': ssim[1], 'PSNR': psnr[1], 'size': fileSizeInBytes}, 200);
+
+            }).run();
+    }
+
+
+});
+
+
 module.exports = router;

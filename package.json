@@ -24,6 +24,10 @@
     "jquery-file-upload-middleware": "*",
     "logging": "*",
     "mime": "*",
-    "node-json-db": "*"
+    "node-json-db": "*",
+    "ssim": "*",
+    "psnr": "*",
+    "ndarray-from-image": "*",
+    "get-image-pixels": "*"
   }
 }
