@@ -35,10 +35,15 @@ router.get('/get/:media_type/:name', function (req, res, next) {
                 width: req.headers.resize
             }, function (error, stdout, stderr) {
                 if (error) {
-                    var err = new Error(req.params.media_type + '/' + req.params.name + ' resize failed!');
-                    err.status = 'warn';
-                    err.statusCode = 404;
-                    next(err);
+                    if (error.code == null) {
+                        res.writeHead(200, {'Content-Type': type, 'size': fileSizeInBytes});
+                        res.end(fs.readFileSync(file), 'binary');
+                    } else {
+                        var err = new Error(req.params.media_type + '/' + req.params.name + ' resize failed!');
+                        err.status = 'warn';
+                        err.statusCode = 404;
+                        next(err);
+                    }
                 } else {
                     res.writeHead(200, {'Content-Type': type, 'size': fileSizeInBytes});
                     res.end(stdout, 'binary');
