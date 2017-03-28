@@ -13,7 +13,7 @@ var mime = require('mime');
 var jwtauth = require('./../functions/jwtauth.js');
 var multer = require('multer');
 var upload = multer();
-
+var getDuration = require('get-video-duration');
 
 router.get('/get/:media_type/:name', function (req, res, next) {
     file = 'storage/' + req.params.media_type + '/' + req.params.name;
@@ -51,8 +51,10 @@ router.get('/get/:media_type/:name', function (req, res, next) {
             });
 
         } else {
-            res.writeHead(200, {'Content-Type': type, 'size': fileSizeInBytes});
-            res.end(fs.readFileSync(file), 'binary');
+            getDuration(file).then(function (duration) {
+                res.writeHead(200, {'Content-Type': type, 'size': fileSizeInBytes, 'duration': duration});
+                res.end(fs.readFileSync(file), 'binary');
+            });
         }
     } else {
         var err = new Error(req.params.media_type + '/' + req.params.name + ' don\'t exist!');

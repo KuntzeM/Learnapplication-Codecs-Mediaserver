@@ -24,6 +24,7 @@
     "jquery-file-upload-middleware": "*",
     "logging": "*",
     "mime": "*",
-    "node-json-db": "*"
+    "node-json-db": "*",
+    "get-video-duration": "*"
   }
 }
