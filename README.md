@@ -33,6 +33,7 @@ Anleitung: http://www.imagemagick.org/script/install-source.php
 ```
 sudo apt-get install libopenjpeg5* libopenjp2-* libpng16-*
 wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+tar xvzf ImageMagick.tar.gz
 cd ImageMagick-7.0.4
 ./configure --enable-shared --with-jpeg --with-openjp2 --with-png
 sudo make
