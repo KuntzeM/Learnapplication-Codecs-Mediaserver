@@ -52,21 +52,12 @@ sudo ldconfig /usr/local/lib
 - Key muss im Webserver bei Configuration zusammen mit der IP des Media-Servers angegeben werden
 ```
 {
-  "mysql": {
-    "host": "localhost",
-    "user": "database_username",
-    "pass": "database_password",
-    "database": "database_name",
-    "prefix": "medienprojekt_"
-  },
   "api": {
     "key": random_key
   },
   "storage": {
     "path": "storage"
   }
-
-
 }
 ```
 
