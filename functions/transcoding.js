@@ -8,7 +8,10 @@ var logger = require('./../functions/logger');
 
 
 module.exports = {
-
+    /**
+     * Startet den Kodierungsprozess für Videos. Genutzt wird das FFmpeg-Modul.
+     * @param data: Parameter für den Kodierungsprozess
+     */
     startVideoTranscoding: function (data) {
         var transcodeEvent = this;
 
@@ -70,6 +73,10 @@ module.exports = {
             }).run();
 
     },
+    /**
+     * Startet den Kodierungsprozess für Bilder. Genutzt wird das ImageMagick-Modul.
+     * @param data: Parameter für den Kodierungsprozess
+     */
     startImageTranscoding: function (data) {
         var transcodeEvent = this;
 
@@ -121,6 +128,9 @@ module.exports = {
         });
     },
 
+    /**
+     * Überprüft ob bereits ein Kodierungsprozess läuft. Wenn nein, so wird die nächste Kodierung aus der job.json genommen und gestartet.
+     */
     prepareTranscoding: function () {
         var transcodeEvent = this;
 
@@ -142,6 +152,9 @@ module.exports = {
         }
     },
 
+    /**
+     * flag, zum überprüfen ob gerade ein Kodierungsprozess läuft
+     */
     isRunningTranscoding: false
 };
 

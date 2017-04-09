@@ -13,6 +13,12 @@ var mime = require('mime');
 var jwtauth = require('./../functions/jwtauth.js');
 
 
+/**
+ * RESTful API
+ * fordert alle Logs an
+ * @url  /log/get
+ * @method DELETE
+ */
 router.get('/get', function (req, res, next) {
 
     try {
@@ -27,6 +33,12 @@ router.get('/get', function (req, res, next) {
 
 });
 
+/**
+ * RESTful API
+ * löscht den Log
+ * @url  /log/delete
+ * @method DELETE
+ */
 router.get('/delete', function (req, res, next) {
     DB_Logs.delete("/");
     res.sendStatus(200)

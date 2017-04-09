@@ -4,6 +4,15 @@ var config = require('./../config.json');
 var upload = require('jquery-file-upload-middleware');
 var logger = require('./../functions/logger');
 
+/**
+ * Überprüft den mitgesendeten Token. Ist der Token nicht korrekt wird ein HTTP Fehlercode zurück gesendet.
+ * 401: Token nicht korrekt
+ * 403: Token nicht vorhanden
+ * Ist die Authentifikation korrekt, wird die Anfrage weiter gesendet
+ * @param req
+ * @param res
+ * @param next
+ */
 module.exports = function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
 

@@ -15,6 +15,14 @@ var multer = require('multer');
 var upload = multer();
 var getDuration = require('get-video-duration');
 
+/**
+ * RESTful API
+ * fordert ein Video oder Bild an
+ * @url  /media/get/:media_type/:name
+ * @method GET
+ * @param :media_type Media-Type; video oder image
+ * @param :name eindeutiger Name der Datei
+ */
 router.get('/get/:media_type/:name', function (req, res, next) {
     file = 'storage/' + req.params.media_type + '/' + req.params.name;
 
@@ -65,7 +73,12 @@ router.get('/get/:media_type/:name', function (req, res, next) {
 
 });
 
-
+/**
+ * RESTful API
+ * sendet ein Bild oder Video an den Mediaserver
+ * @url  /media/post
+ * @method POST
+ */
 router.post('/post', upload.any(), function (req, res, next) {
 
     if (!(req.body.media_type == 'image') && !(req.body.media_type == 'video')) {
@@ -85,7 +98,14 @@ router.post('/post', upload.any(), function (req, res, next) {
         });
     }
 });
-
+/**
+ * RESTful API
+ * löscht ein Video oder Bild an
+ * @url  /media/delete/:media_type/:name
+ * @method DELETE
+ * @param :media_type Media-Type; video oder image
+ * @param :name eindeutiger Name der Datei
+ */
 router.delete('/delete/:media_type/:name', jwtauth, function (req, res, next) {
     file = 'storage/' + req.params.media_type + '/' + req.params.name;
     try {
@@ -100,7 +120,17 @@ router.delete('/delete/:media_type/:name', jwtauth, function (req, res, next) {
     }
 
 });
-
+/**
+ * RESTful API
+ * fordert den PSRN und SSIM an. Dabei wird das Bild/Video mit seinem orginal Video verglichen.
+ * Es wird FFmpeg zum berechnen verwendet.
+ * @url  /media/get/metrics/:media_type1/:name1/:media_type2/:name2
+ * @method GET
+ * @param :media_type1 Media-Type des original Videos/Bildes; video oder image
+ * @param :name1 eindeutiger Name des original Videos/Bildes
+ * @param :media_type2 Media-Type des zu vergleichenden Videos/Bildes; video oder image
+ * @param :name2 eindeutiger Name des zu vergleichenden Videos/Bildes
+ */
 router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, function (req, res, next) {
 
     var file1 = 'storage/' + req.params.media_type1 + '/' + req.params.name1;
@@ -149,9 +179,6 @@ router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, func
 
             }).run();
     }
-
-
 });
-
 
 module.exports = router;

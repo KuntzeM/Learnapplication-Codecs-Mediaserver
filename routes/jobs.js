@@ -8,7 +8,12 @@ var config = require('./../config.json');
 var logger = require('./../functions/logger');
 var mime = require('mime');
 
-
+/**
+ * RESTful API
+ * startet den nächsten Kodierungsprozess, sollte keiner laufen.
+ * @url  /jobs/startTranscoding
+ * @method POST
+ */
 router.post('/startTranscoding', function (req, res, next) {
 
     if (global.isRunningTranscoding) {
@@ -21,7 +26,12 @@ router.post('/startTranscoding', function (req, res, next) {
     }
 });
 
-
+/**
+ * RESTful API
+ * fordert eine Liste alle Kodierungsprozesse in der Warteschlange und laufende an
+ * @url  /jobs/get
+ * @method GET
+ */
 router.get('/get', function (req, res, next) {
     try {
         var jobs = DB_Jobs.getData('/job');
@@ -37,6 +47,12 @@ router.get('/get', function (req, res, next) {
 
 });
 
+/**
+ * RESTful API
+ * speichert einen neuen Kodierungsprozess in der Warteschlange (jobs.json)
+ * @url  /jobs/post
+ * @method POST
+ */
 router.post('/post', function (req, res, next) {
 
     if (req.body.name != undefined) {
@@ -75,6 +91,12 @@ router.post('/post', function (req, res, next) {
     res.sendStatus(200);
 });
 
+/**
+ * RESTful API
+ * löscht alle Kodierungsprozesse in der Warteschlange
+ * @url  /jobs/delete
+ * @method DELETE
+ */
 router.delete('/delete', function (req, res, next) {
     DB_Jobs.delete("/");
     res.sendStatus(200);

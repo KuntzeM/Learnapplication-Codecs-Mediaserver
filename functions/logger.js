@@ -5,7 +5,17 @@ var JsonDB = require('node-json-db');
 fs = require('fs');
 
 module.exports = {
+    /**
+     * beschreibt bis welcher Log-Stufe die Nachrichten gespeichert werden sollen.
+     * Ist debugLevel: 'error', so werden nur Error-Nachrichten erfasst.
+     */
     debugLevel: 'info',
+
+    /**
+     * Speichert Log-Nachrichten in die log.json und gibt eine Consolen-Nachricht aus.
+     * @param level: Log-Level; kann error, warn oder info sein.
+     * @param message: Log-Nachricht
+     */
     log: function (level, message) {
 
         var levels = ['error', 'warn', 'info'];
@@ -19,7 +29,7 @@ module.exports = {
                 console.log(level + ': ' + message);
             }
 
-            time = new Date().toISOString().slice(0, 19).replace('T', ' ');
+            var time = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
             var log = {
                 'level': level,
