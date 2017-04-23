@@ -154,6 +154,7 @@ router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, func
             .complexFilter(['ssim; [0:v][1:v]psnr'])
             .inputOptions([
                 '-strict -2'
+                //'-lavfi', 'ssim;[0:v][1:v]psnr'
             ]).noAudio()
             .output('storage/tmp.mp4')
             .on('progress', function (progress) {
@@ -171,11 +172,18 @@ router.get('/get/metrics/:media_type1/:name1/:media_type2/:name2', jwtauth, func
                 regex = /SSIM[\s\S]* All:([0-9]*[.][0-9]*)/g;
                 ssim = regex.exec(stderr);
 
-                regex = /PSNR[\s\S]* average:([0-9]*[.][0-9]*)/g;
+                regex = /PSNR[\s\S]* average:(inf|[0-9]*[.][0-9]*)/g;
                 psnr = regex.exec(stderr);
                 computeMetric = false;
                 DB_Jobs.delete('/metrics');
-                res.status(200).json({'SSIM': ssim[1], 'PSNR': psnr[1], 'size': fileSizeInBytes});
+                try{
+                    res.status(200).json({'SSIM': ssim[1], 'PSNR': psnr[1], 'size': fileSizeInBytes});
+                }catch(error){
+                    var err = new Error('cannot compute PSNR/SSIM: ' + error.message);
+                    err.statusCode = 404;
+                    next(err);
+                }
+
 
             }).run();
     }
