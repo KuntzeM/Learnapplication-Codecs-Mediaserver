@@ -32,9 +32,9 @@ In der Version 6.* befindet sich ein Bug, der das Bild nicht korrekt in JPEG2000
 Anleitung: http://www.imagemagick.org/script/install-source.php
 ```
 sudo apt-get install libopenjpeg5* libopenjp2-* libpng16-* libjpeg9*
-wget https://www.imagemagick.org/download/ImageMagick.tar.gz
-tar xvzf ImageMagick-7.0.4.tar.gz
-cd ImageMagick-7.0.4
+wget https://www.imagemagick.org/download/ImageMagick-7.0.5-5.tar.gz
+tar xvzf ImageMagick-7.0.5-5.tar.gz
+cd ImageMagick-7.0.5-5
 ./configure --enable-shared --with-jpeg --with-openjp2 --with-png
 sudo make
 sudo make install
